@@ -4,8 +4,6 @@ title: Network during installation
 sidebar_label: Live network
 ---
 
-# Network during installation
-
 The installer needs working network access to retrieve packages. Treat network setup as a dependency, not a side quest.
 
 ## Diagnose in layers
