@@ -97,6 +97,6 @@ Stop before adding kernel parameters or replacing the graphics stack when:
 
 ## References
 
-- ArchWiki: Xorg
-- ArchWiki: Wayland
-- ArchWiki: graphics and GPU documentation
+- [ArchWiki: Xorg](https://wiki.archlinux.org/title/Xorg)
+- [ArchWiki: Wayland](https://wiki.archlinux.org/title/Wayland)
+- [ArchWiki: General-purpose_GPU_acceleration](https://wiki.archlinux.org/title/General-purpose_GPU_acceleration)
