@@ -1,3 +1,7 @@
+---
+id: 08-bootloader
+---
+
 # 08 — Bootloader
 
 ## Choices
