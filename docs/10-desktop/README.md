@@ -1,3 +1,7 @@
+---
+id: 10-desktop
+---
+
 # 10 — Desktop Environment
 
 Arch provides a minimal base and does not force a graphical desktop. The desktop is a separate design layer.
