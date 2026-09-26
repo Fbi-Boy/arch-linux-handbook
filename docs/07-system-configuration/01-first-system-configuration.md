@@ -4,8 +4,6 @@ title: Configure the new system
 sidebar_label: First system configuration
 ---
 
-# Configure the new system
-
 These steps are performed after entering the target with `arch-chroot /mnt`.
 
 ## 1. Time zone
