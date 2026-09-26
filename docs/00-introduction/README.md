@@ -1,3 +1,7 @@
+---
+id: 00-introduction
+---
+
 # 00 — Introduction
 
 Arch Linux is an x86-64 general-purpose distribution following a rolling-release model and a minimal-by-default installation approach. The official installation guide is intentionally concise and points to detailed ArchWiki articles.
