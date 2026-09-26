@@ -9,7 +9,9 @@ Use a layered model to diagnose connectivity without changing several variables 
 
 ## Layer model
 
-**Device → Link → Address → Route → DNS → Application**
+### Network layer flow
+
+Device → Link → Address → Route → DNS → Application
 
 A failure at one layer can make every layer above it appear broken.
 
@@ -91,7 +93,9 @@ with the intended firewall policy. Keep service exposure and firewall changes se
 
 Use:
 
-**Identify → isolate layer → make one change → verify → record**
+### Recovery flow
+
+Identify → isolate layer → make one change → verify → record
 
 If networking breaks after a configuration change, revert the smallest recent change first.
 
