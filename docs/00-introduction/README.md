@@ -1,5 +1,6 @@
 ---
 id: 00-introduction
+slug: /00-introduction
 ---
 
 # 00 — Introduction
