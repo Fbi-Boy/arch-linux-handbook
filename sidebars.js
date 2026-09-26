@@ -47,7 +47,10 @@ const sidebar = [
     label: 'Post-Install',
     items: [
       'desktop/10-desktop',
+      'desktop/desktop-strategy',
       'hardware/11-hardware',
+      'hardware/hardware-inventory',
+      'hardware/graphics-and-gpu',
       'security/12-security',
       'development/13-development',
       'dual-boot/14-dual-boot',
