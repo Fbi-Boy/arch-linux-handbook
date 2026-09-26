@@ -4,8 +4,6 @@ title: System Maintenance
 sidebar_position: 1
 ---
 
-# System Maintenance
-
 Arch is maintained by keeping the system **updated, observable, and recoverable**. Maintenance should be routine rather than a collection of emergency commands.
 
 ## 1. Inspect first
@@ -156,4 +154,4 @@ A routine maintenance cycle is complete when:
 
 ## Next step
 
-Continue to [Backup and Recovery Readiness](./02-backup-and-recovery-readiness).
+Continue to [Backup and Recovery Readiness](/docs/maintenance/backup-and-recovery-readiness).
