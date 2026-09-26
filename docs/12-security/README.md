@@ -1,5 +1,6 @@
 ---
 id: 12-security
+slug: /12-security
 ---
 
 # 12 — Security
