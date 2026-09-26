@@ -68,7 +68,7 @@ Avoid random kernel parameters. First identify the controller and the failing la
 
 ## Recovery pattern
 
-**Detect → Identify → Driver → Firmware → Service → Userspace → Verify**
+### Detect → Identify → Driver → Firmware → Service → Userspace → Verify
 
 Change one layer at a time and record the result.
 
