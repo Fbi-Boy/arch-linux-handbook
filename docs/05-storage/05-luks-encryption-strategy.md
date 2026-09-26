@@ -41,7 +41,9 @@ For an existing disk, stop if the target device cannot be identified unambiguous
 
 The conceptual lifecycle is:
 
-**Identify → Format → Unlock → Mount → Verify → Backup → Recover**
+### LUKS lifecycle flow
+
+Identify → Format → Unlock → Mount → Verify → Backup → Recover
 
 A new LUKS container is destructive to existing data on the target device. A typical new container is created with:
 
@@ -76,7 +78,9 @@ Do not paste secrets, recovery keys, or passphrases into documentation, shell hi
 
 Encrypted root adds a dependency chain:
 
-**Firmware → bootloader/UKI → initramfs → unlock LUKS → discover root → mount root → userspace**
+### Encrypted boot dependency
+
+Firmware → bootloader/UKI → initramfs → unlock LUKS → discover root → mount root → userspace
 
 Arch's full-system encryption guidance documents LUKS2, encrypted root, and the corresponding boot/initramfs configuration. Exact parameters depend on the chosen initramfs and boot architecture.
 
