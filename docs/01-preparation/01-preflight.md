@@ -4,8 +4,6 @@ title: Preflight checklist
 sidebar_label: Preflight checklist
 ---
 
-# Preflight checklist
-
 Tujuan preflight adalah memastikan instalasi dapat dilakukan tanpa menebak kondisi mesin.
 
 ## STOP sebelum menyentuh disk
