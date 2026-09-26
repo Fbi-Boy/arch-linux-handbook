@@ -52,8 +52,11 @@ const sidebar = [
       'hardware/hardware-inventory',
       'hardware/graphics-and-gpu',
       'security/12-security',
+      'security/security-baseline',
+      'security/service-hardening',
       'development/13-development',
       'dual-boot/14-dual-boot',
+      'dual-boot/windows-dual-boot-safety',
       'maintenance/15-maintenance',
     ],
   },
@@ -70,4 +73,5 @@ const sidebar = [
     ],
   },
 ];
+
 export default {handbook: sidebar};
