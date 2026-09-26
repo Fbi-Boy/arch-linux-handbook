@@ -4,8 +4,6 @@ title: Git and SSH Workflow
 sidebar_position: 2
 ---
 
-# Git and SSH Workflow
-
 Git should make changes **traceable and reversible**. A disciplined workflow reduces the chance that a broken experiment becomes an unrecoverable system change.
 
 ## 1. Inspect before changing
@@ -134,4 +132,4 @@ Then run the project's complete verification suite.
 
 ## Next step
 
-Continue to [System Maintenance](../15-maintenance/01-system-maintenance).
+Continue to [System Maintenance](/docs/maintenance/system-maintenance).
