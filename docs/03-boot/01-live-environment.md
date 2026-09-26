@@ -96,4 +96,4 @@ Return to firmware configuration or fix the live environment if:
 
 ## Next
 
-Continue to [storage planning](/docs/partitioning) only after the preflight gate passes.
+Continue to [storage planning](../../05-storage/01-partitioning-strategy.md) only after the preflight gate passes.
