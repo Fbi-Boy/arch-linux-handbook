@@ -3,6 +3,7 @@
 - 
 
 ## Validation
+
 - [ ] Procedure checked against current upstream documentation
 - [ ] Markdown quality checks pass
 - [ ] Links checked
