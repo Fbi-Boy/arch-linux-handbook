@@ -41,7 +41,7 @@ Confirm the intended ESP and UEFI entry.
 
 ## Loader configuration
 
-Create <ESP>/loader/loader.conf:
+Create ESP/loader/loader.conf:
 
 ~~~ini
 default arch.conf
@@ -51,13 +51,13 @@ editor no
 
 ## Kernel entry
 
-Create <ESP>/loader/entries/arch.conf:
+Create ESP/loader/entries/arch.conf:
 
 ~~~ini
 title   Arch Linux
 linux   /vmlinuz-linux
 initrd  /initramfs-linux.img
-options root=UUID=<ROOT-UUID> rw
+options root=UUID=ROOT-UUID rw
 ~~~
 
 Paths must match the actual boot layout. If microcode is a separate initramfs, it must precede the main initramfs.
