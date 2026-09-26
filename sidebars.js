@@ -55,9 +55,13 @@ const sidebar = [
       'security/security-baseline',
       'security/service-hardening',
       'development/13-development',
+      'development/development-environment',
+      'development/git-and-ssh-workflow',
       'dual-boot/14-dual-boot',
       'dual-boot/windows-dual-boot-safety',
       'maintenance/15-maintenance',
+      'maintenance/system-maintenance',
+      'maintenance/backup-and-recovery-readiness',
     ],
   },
   {
