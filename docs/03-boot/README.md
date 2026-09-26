@@ -1,3 +1,7 @@
+---
+id: 03-boot
+---
+
 # 03 — Boot and Live Environment
 
 ## Objective
