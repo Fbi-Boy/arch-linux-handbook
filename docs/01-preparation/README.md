@@ -1,3 +1,7 @@
+---
+id: 01-preparation
+---
+
 # 01 — Preparation
 
 ## Checklist
