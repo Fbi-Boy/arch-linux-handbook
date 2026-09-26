@@ -1,5 +1,6 @@
 ---
 id: 10-desktop
+slug: /10-desktop
 ---
 
 # 10 — Desktop Environment
