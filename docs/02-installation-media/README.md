@@ -1,5 +1,6 @@
 ---
 id: 02-installation-media
+slug: /02-installation-media
 ---
 
 # 02 — Installation Media
