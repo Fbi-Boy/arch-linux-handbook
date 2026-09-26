@@ -1,5 +1,6 @@
 ---
 id: 11-hardware
+slug: /11-hardware
 ---
 
 # 11 — Hardware
