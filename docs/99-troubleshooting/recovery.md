@@ -4,9 +4,9 @@ Recovery is a controlled diagnostic process, not a sequence of increasingly dest
 
 ## Recovery model
 
-**Preserve → Identify → Isolate → Repair → Verify → Record**
+### Preserve → Identify → Isolate → Repair → Verify → Record
 
-### Preserve
+#### Preserve
 
 Capture the current state before changing it:
 
@@ -26,7 +26,7 @@ efibootmgr -v
 bootctl status
 ```
 
-### Identify
+#### Identify
 
 Classify the failure:
 
@@ -39,7 +39,7 @@ Classify the failure:
 
 Use the smallest set of commands that distinguishes these layers.
 
-### Isolate
+#### Isolate
 
 Reduce the problem to one failing component.
 
@@ -50,7 +50,7 @@ Examples:
 - TTY works but desktop fails → inspect graphics/session;
 - package download works but transaction fails → inspect pacman/dependencies.
 
-### Repair
+#### Repair
 
 Make one controlled change at a time.
 
@@ -100,7 +100,7 @@ After repair, test the layer that originally failed and then test dependent laye
 
 For example:
 
-**boot → network → package manager → desktop**
+### boot → network → package manager → desktop
 
 Do not declare recovery successful merely because the machine reaches a login screen.
 
