@@ -108,7 +108,7 @@ const config = {
           title: 'Project',
           items: [
             {label: 'GitHub', href: 'https://github.com/Fbi-Boy/arch-linux-handbook'},
-            {label: 'Contributing', to: '/docs/00-introduction/content-model'},
+            {label: 'Contributing', to: '/docs/introduction/content-model'},
           ],
         },
       ],
