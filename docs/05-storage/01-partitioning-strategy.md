@@ -4,8 +4,6 @@ title: Partitioning strategy
 sidebar_label: Partitioning strategy
 ---
 
-# Partitioning strategy
-
 Partitioning is where the installation becomes destructive. The handbook therefore separates **design** from **execution**.
 
 ## First principle
