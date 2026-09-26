@@ -1,3 +1,7 @@
+---
+id: 11-hardware
+---
+
 # 11 — Hardware
 
 Hardware support is device-specific. Detect hardware before selecting drivers or configuration.
