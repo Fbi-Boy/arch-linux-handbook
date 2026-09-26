@@ -1,3 +1,7 @@
+---
+id: 05-storage
+---
+
 # 05 — Storage and Partitioning
 
 > ⚠️ DATA LOSS ZONE: partitioning and filesystem creation can permanently destroy data.
