@@ -185,4 +185,4 @@ Then run the project's own formatter, linter, test suite, and build command.
 
 ## Next step
 
-Continue to [Git and SSH Workflow](/docs/development/git-and-ssh-workflow).
+Continue to [Git and SSH Workflow](./02-git-and-ssh-workflow.md).
