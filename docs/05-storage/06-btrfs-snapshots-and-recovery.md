@@ -64,7 +64,9 @@ Never start a rollback by deleting the current root.
 
 Use:
 
-**Inspect → snapshot → test → select rollback target → preserve current state → switch → boot → verify**
+### Rollback flow
+
+Inspect → snapshot → test → select rollback target → preserve current state → switch → boot → verify
 
 A failed rollback is easier to recover when the previous state remains available.
 
