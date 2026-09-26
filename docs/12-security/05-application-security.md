@@ -101,6 +101,6 @@ Do not merely delete the visible secret and assume the problem is solved.
 
 ## References
 
-- ArchWiki: Security
-- ArchWiki: General recommendations
-- ArchWiki: AUR
+- [ArchWiki: Security](https://wiki.archlinux.org/title/Security)
+- [ArchWiki: General recommendations](https://wiki.archlinux.org/title/General_recommendations)
+- [ArchWiki: Arch User Repository](https://wiki.archlinux.org/title/Arch_User_Repository)
