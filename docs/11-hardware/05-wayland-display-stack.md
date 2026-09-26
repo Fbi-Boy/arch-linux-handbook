@@ -9,7 +9,9 @@ Display problems are easier to solve when the graphical stack is treated as laye
 
 ## Layer model
 
-**GPU → kernel DRM → firmware/driver → Mesa or userspace graphics → Wayland compositor → display manager/session → application**
+### Graphics stack flow
+
+GPU → kernel DRM → firmware/driver → Mesa or userspace graphics → Wayland compositor → display manager/session → application
 
 A failure at one layer can make higher layers appear broken.
 
@@ -99,4 +101,4 @@ Stop before adding kernel parameters or replacing the graphics stack when:
 
 - [ArchWiki: Xorg](https://wiki.archlinux.org/title/Xorg)
 - [ArchWiki: Wayland](https://wiki.archlinux.org/title/Wayland)
-- [ArchWiki: General-purpose_GPU_acceleration](https://wiki.archlinux.org/title/General-purpose_GPU_acceleration)
+- [ArchWiki: GPU](https://wiki.archlinux.org/title/Category:Graphics)
