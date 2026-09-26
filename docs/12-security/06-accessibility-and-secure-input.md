@@ -73,4 +73,4 @@ Keep a normal keyboard/TTY path available. If an accessibility component interfe
 ## References
 
 - [ArchWiki: Accessibility](https://wiki.archlinux.org/title/Accessibility)
-- [ArchWiki: Input device](https://wiki.archlinux.org/title/Input_devices)
+- [ArchWiki: Input device](https://wiki.archlinux.org/title/Libinput)
