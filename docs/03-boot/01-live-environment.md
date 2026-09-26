@@ -4,8 +4,6 @@ title: Boot the live environment
 sidebar_label: Boot the live environment
 ---
 
-# Boot the live environment
-
 The live environment is the controlled workspace used to inspect hardware, establish networking, partition storage, install the base system, and enter the new system with `arch-chroot`.
 
 ## 1. Firmware boot menu
@@ -98,4 +96,4 @@ Return to firmware configuration or fix the live environment if:
 
 ## Next
 
-Continue to [storage planning](../storage/partitioning) only after the preflight gate passes.
+Continue to [storage planning](/docs/partitioning) only after the preflight gate passes.
