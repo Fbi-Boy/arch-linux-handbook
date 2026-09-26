@@ -1,3 +1,7 @@
+---
+id: 04-network
+---
+
 # 04 — Network
 
 ## Goal
