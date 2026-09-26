@@ -12,6 +12,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: Validate Markdown
-        run: |
-          npx --yes markdownlint-cli2 "**/*.md" "#node_modules"
+      - name: Markdown lint
+        uses: DavidAnson/markdownlint-cli2-action@v24
+        with:
+          globs: "**/*.md"
+          config: ".markdownlint-cli2.jsonc"
