@@ -143,4 +143,4 @@ A system is recovery-ready when:
 
 ## Next step
 
-Continue to [Troubleshooting](/docs/troubleshooting/99-troubleshooting).
+Continue to [Troubleshooting](../99-troubleshooting/README.md).
