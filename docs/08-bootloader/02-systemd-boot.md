@@ -4,8 +4,6 @@ title: Configure systemd-boot
 sidebar_label: systemd-boot
 ---
 
-# Configure systemd-boot
-
 Assumptions: UEFI mode, mounted ESP, arch-chroot, and installed Linux kernel.
 
 ## Verify the ESP
