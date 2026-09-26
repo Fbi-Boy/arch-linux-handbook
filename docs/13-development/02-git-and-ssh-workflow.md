@@ -132,4 +132,4 @@ Then run the project's complete verification suite.
 
 ## Next step
 
-Continue to [System Maintenance](/docs/maintenance/system-maintenance).
+Continue to [System Maintenance](../15-maintenance/01-system-maintenance.md).
