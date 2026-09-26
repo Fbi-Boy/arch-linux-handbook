@@ -7,7 +7,7 @@ sidebar_label: LUKS Encryption
 
 This guide explains how to choose and reason about block-device encryption with dm-crypt and LUKS. It is intentionally decision-oriented: encryption changes recovery procedures, boot dependencies, and the consequences of losing credentials.
 
-ArchWiki identifies dm-crypt as Linux's standard device-mapper encryption functionality and LUKS as the default convenience layer for dm-crypt. Use the official documentation as the authority for exact options. citeturn0search0turn0search1
+ArchWiki identifies dm-crypt as Linux's standard device-mapper encryption functionality and LUKS as the default convenience layer for dm-crypt. Use the official documentation as the authority for exact options.
 
 ## Decision point
 
@@ -78,7 +78,7 @@ Encrypted root adds a dependency chain:
 
 **Firmware → bootloader/UKI → initramfs → unlock LUKS → discover root → mount root → userspace**
 
-Arch's full-system encryption guidance documents LUKS2, encrypted root, and the corresponding boot/initramfs configuration. Exact parameters depend on the chosen initramfs and boot architecture. citeturn0search1turn0search8
+Arch's full-system encryption guidance documents LUKS2, encrypted root, and the corresponding boot/initramfs configuration. Exact parameters depend on the chosen initramfs and boot architecture.
 
 For an existing encrypted installation, inspect before repairing:
 
@@ -117,6 +117,6 @@ Stop and reassess when:
 
 ## References
 
-- ArchWiki: Data-at-rest encryption
-- ArchWiki: dm-crypt / full-system encryption
-- ArchWiki: non-root filesystem encryption
+- [ArchWiki: Data-at-rest encryption](https://wiki.archlinux.org/title/Data-at-rest_encryption)
+- [ArchWiki: dm-crypt / full-system encryption](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system)
+- [ArchWiki: non-root filesystem encryption](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_a_non-root_file_system)
