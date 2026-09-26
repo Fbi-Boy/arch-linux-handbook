@@ -4,8 +4,6 @@ title: Install the base system
 sidebar_label: Base system
 ---
 
-# Install the base system
-
 The base installation stage turns the mounted target filesystem into a bootable Arch userspace.
 
 ## 1. Final mount verification
