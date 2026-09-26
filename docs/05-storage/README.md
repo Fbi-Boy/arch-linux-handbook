@@ -1,5 +1,6 @@
 ---
 id: 05-storage
+slug: /05-storage
 ---
 
 # 05 — Storage and Partitioning
