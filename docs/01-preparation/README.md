@@ -1,3 +1,8 @@
+---
+id: 01-preparation
+slug: /01-preparation
+---
+
 # 01 — Preparation
 
 ## Checklist

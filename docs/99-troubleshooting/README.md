@@ -1,3 +1,8 @@
+---
+id: 99-troubleshooting
+slug: /99-troubleshooting
+---
+
 # 99 — Troubleshooting
 
 Troubleshooting is organized by failure layer.

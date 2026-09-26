@@ -1,3 +1,8 @@
+---
+id: 07-system-configuration
+slug: /07-system-configuration
+---
+
 # 07 — System Configuration
 
 ## Order

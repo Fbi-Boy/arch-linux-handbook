@@ -1,3 +1,8 @@
+---
+id: 13-development
+slug: /13-development
+---
+
 # 13 — Development Environment
 
 This layer creates a reproducible developer workstation after the operating system is stable.

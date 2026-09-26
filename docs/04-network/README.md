@@ -1,3 +1,8 @@
+---
+id: 04-network
+slug: /04-network
+---
+
 # 04 — Network
 
 ## Goal

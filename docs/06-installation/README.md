@@ -1,3 +1,8 @@
+---
+id: 06-installation
+slug: /06-installation
+---
+
 # 06 — Base Installation
 
 ## Objective

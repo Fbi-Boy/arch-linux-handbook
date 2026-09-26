@@ -1,3 +1,8 @@
+---
+id: 14-dual-boot
+slug: /14-dual-boot
+---
+
 # 14 — Windows + Arch Dual Boot
 
 ## Safety
