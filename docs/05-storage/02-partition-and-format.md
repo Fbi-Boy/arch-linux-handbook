@@ -4,8 +4,6 @@ title: Partition and format safely
 sidebar_label: Partition and format safely
 ---
 
-# Partition and format safely
-
 This page deliberately does not provide a blind copy-paste destructive command. The device path must be substituted only after verification.
 
 ## 1. Identify the disk
@@ -101,4 +99,4 @@ Stop immediately if:
 
 ## Next
 
-Proceed to [base installation](../installation/base-install) after the mount gate passes.
+Proceed to [base installation](/docs/base-install) after the mount gate passes.
