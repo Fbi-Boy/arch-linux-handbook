@@ -4,8 +4,6 @@ title: Development Environment
 sidebar_position: 1
 ---
 
-# Development Environment
-
 A useful Arch development environment should be **reproducible, inspectable, and easy to recover**. Install only the tools needed by the workflow, keep the package source clear, and verify each layer before adding more software.
 
 ## 1. Establish a clean baseline
@@ -187,4 +185,4 @@ Then run the project's own formatter, linter, test suite, and build command.
 
 ## Next step
 
-Continue to [Git and SSH Workflow](./02-git-and-ssh-workflow).
+Continue to [Git and SSH Workflow](/docs/development/git-and-ssh-workflow).
