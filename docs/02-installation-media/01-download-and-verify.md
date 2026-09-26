@@ -4,8 +4,6 @@ title: Download and verify the installation image
 sidebar_label: Download and verify
 ---
 
-# Download and verify the installation image
-
 Treat the ISO as a software supply-chain input. Download it from the official Arch Linux download infrastructure and verify it before writing it to removable media.
 
 ## 1. Download from the official source
