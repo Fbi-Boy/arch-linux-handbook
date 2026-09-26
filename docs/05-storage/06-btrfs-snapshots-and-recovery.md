@@ -123,5 +123,5 @@ Stop before rollback when:
 
 ## References
 
-- ArchWiki: Btrfs
-- ArchWiki: filesystem and storage documentation
+- [ArchWiki: Btrfs](https://wiki.archlinux.org/title/Btrfs)
+- [ArchWiki: File systems](https://wiki.archlinux.org/title/File_systems)
