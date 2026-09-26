@@ -7,7 +7,6 @@ const sidebar = [
       'introduction/00-introduction',
       'introduction/architecture',
     'introduction/command-reference',
-    'introduction/design-system',
       'introduction/content-model',
       'introduction/references',
       'introduction/roadmap',
