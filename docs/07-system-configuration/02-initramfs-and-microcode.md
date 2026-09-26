@@ -4,8 +4,6 @@ title: Initramfs and CPU microcode
 sidebar_label: Initramfs & microcode
 ---
 
-# Initramfs and CPU microcode
-
 The initramfs provides early userspace before the real root filesystem is available. Arch supports mkinitcpio, dracut, and booster.
 
 ## CPU microcode
