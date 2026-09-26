@@ -154,4 +154,4 @@ A routine maintenance cycle is complete when:
 
 ## Next step
 
-Continue to [Backup and Recovery Readiness](/docs/maintenance/backup-and-recovery-readiness).
+Continue to [Backup and Recovery Readiness](./02-backup-and-recovery-readiness.md).
