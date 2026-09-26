@@ -35,7 +35,9 @@ Every procedural page should support three states:
 
 Prefer this sequence:
 
-**Purpose → Prerequisites → Decision → Procedure → Verification → Failure → Recovery → References**
+### Standard page rhythm
+
+Purpose → Prerequisites → Decision → Procedure → Verification → Failure → Recovery → References
 
 Long pages should use short sections, tables, callouts, and command blocks rather than dense walls of text.
 
