@@ -1,6 +1,6 @@
 ## Summary
 
-- 
+Describe the change.
 
 ## Validation
 
@@ -13,4 +13,4 @@
 
 ## References
 
-- 
+Add authoritative references.
