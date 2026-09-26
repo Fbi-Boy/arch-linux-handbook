@@ -1,5 +1,6 @@
 ---
 id: 08-bootloader
+slug: /08-bootloader
 ---
 
 # 08 — Bootloader
