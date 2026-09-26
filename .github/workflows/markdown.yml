@@ -1,0 +1,17 @@
+name: Documentation Quality
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Validate Markdown
+        run: |
+          npx --yes markdownlint-cli2 "**/*.md" "#node_modules"
