@@ -84,4 +84,9 @@ The design must maintain:
 
 ## Design references
 
-The implementation follows Docusaurus's supported theme customization model, including custom CSS, stable theme class names, configurable navbar, color mode, and sidebar customization. citeturn0search0turn0search1turn0search2
+The implementation follows Docusaurus's supported theme customization model, including custom CSS, configurable navbar, color mode, and sidebar customization.
+
+References:
+- https://current.docusaurus.io/docs/styling-layout
+- https://current.docusaurus.io/docs/api/themes/configuration
+- https://www.docusaurus.io/docs/sidebar
