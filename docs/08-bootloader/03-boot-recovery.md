@@ -4,8 +4,6 @@ title: Boot failure recovery
 sidebar_label: Boot recovery
 ---
 
-# Boot failure recovery
-
 A failed boot is a diagnosis problem, not automatically a reinstall problem.
 
 ## Recovery sequence
