@@ -4,8 +4,6 @@ title: Pre-reboot quality gate
 sidebar_label: Pre-reboot gate
 ---
 
-# Pre-reboot quality gate
-
 Rebooting is a deployment event. Treat it as a quality gate.
 
 ## Filesystems
