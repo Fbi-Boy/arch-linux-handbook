@@ -99,4 +99,4 @@ Stop immediately if:
 
 ## Next
 
-Proceed to [base installation](/docs/base-install) after the mount gate passes.
+Proceed to [base installation](../../06-installation/04-base-install.md) after the mount gate passes.
