@@ -4,8 +4,6 @@ title: Bootloader strategy
 sidebar_label: Bootloader strategy
 ---
 
-# Bootloader strategy
-
 The bootloader connects UEFI firmware to the installed operating system. Choose it from firmware mode, storage architecture, multi-boot needs, and recovery requirements.
 
 ## Baseline
