@@ -1,3 +1,7 @@
+---
+id: 15-maintenance
+---
+
 # 15 — Maintenance
 
 Arch Linux follows a rolling-release model, so maintenance is an ongoing operating-system task.
