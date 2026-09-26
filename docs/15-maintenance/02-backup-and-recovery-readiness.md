@@ -4,8 +4,6 @@ title: Backup and Recovery Readiness
 sidebar_position: 2
 ---
 
-# Backup and Recovery Readiness
-
 A recovery plan is useful only when the data and instructions required by that plan actually exist.
 
 ## 1. Identify what must survive
@@ -145,4 +143,4 @@ A system is recovery-ready when:
 
 ## Next step
 
-Continue to [Troubleshooting](../99-troubleshooting/99-troubleshooting).
+Continue to [Troubleshooting](/docs/troubleshooting/99-troubleshooting).
