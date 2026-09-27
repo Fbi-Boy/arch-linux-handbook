@@ -48,20 +48,20 @@ const config = {
         href: '/arch-linux-handbook/',
       },
       items: [
-        {to: '/docs/introduction/00-introduction', label: 'Handbook', position: 'left'},
-        {to: '/docs/installation/06-installation', label: 'Installation', position: 'left'},
+        {to: '/docs/00-introduction', label: 'Handbook', position: 'left'},
+        {to: '/docs/06-installation', label: 'Installation', position: 'left'},
         {
           type: 'dropdown',
           label: 'Guides',
           position: 'left',
           items: [
-            {to: '/docs/desktop/10-desktop', label: 'Desktop'},
-            {to: '/docs/hardware/11-hardware', label: 'Hardware'},
-            {to: '/docs/security/12-security', label: 'Security'},
-            {to: '/docs/development/13-development', label: 'Development'},
+            {to: '/docs/10-desktop', label: 'Desktop'},
+            {to: '/docs/11-hardware', label: 'Hardware'},
+            {to: '/docs/12-security', label: 'Security'},
+            {to: '/docs/13-development', label: 'Development'},
           ],
         },
-        {to: '/docs/troubleshooting/99-troubleshooting', label: 'Recovery', position: 'left'},
+        {to: '/docs/99-troubleshooting', label: 'Recovery', position: 'left'},
         {type: 'search', position: 'right'},
         {href: 'https://github.com/Fbi-Boy/arch-linux-handbook', label: 'GitHub', position: 'right'},
       ],
@@ -79,9 +79,9 @@ const config = {
         {
           title: 'Handbook',
           items: [
-            {label: 'Introduction', to: '/docs/introduction/00-introduction'},
-            {label: 'Installation', to: '/docs/installation/06-installation'},
-            {label: 'Troubleshooting', to: '/docs/troubleshooting/99-troubleshooting'},
+            {label: 'Introduction', to: '/docs/00-introduction'},
+            {label: 'Installation', to: '/docs/06-installation'},
+            {label: 'Troubleshooting', to: '/docs/99-troubleshooting'},
           ],
         },
         {
