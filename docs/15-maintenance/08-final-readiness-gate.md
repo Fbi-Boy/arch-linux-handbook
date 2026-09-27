@@ -8,7 +8,7 @@ Define the evidence required before calling a handbook release complete. This pa
 
 ## Release gates
 
-A release candidate must satisfy all of these gates:
+A release must satisfy all of these gates:
 
 | Gate | Evidence |
 | --- | --- |
@@ -26,10 +26,10 @@ A release candidate must satisfy all of these gates:
 
 Run the local production check:
 
-`bash
+```bash
 npm install
 npm run build
-`
+```
 
 Then inspect the generated site and confirm:
 

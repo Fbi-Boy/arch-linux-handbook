@@ -4,7 +4,7 @@
 
 ## v1.0.0
 
-The first release candidate of the handbook is complete as a cohesive documentation product: installation, system configuration, boot, desktop, hardware, security, development, maintenance, dual boot, troubleshooting, and recovery are connected by one verification-first workflow.
+The v1.0.0 documentation baseline is complete as a cohesive documentation product: installation, system configuration, boot, desktop, hardware, security, development, maintenance, dual boot, troubleshooting, and recovery are connected by one verification-first workflow.
 
 ## Handbook flow
 
@@ -85,8 +85,9 @@ npm run build
 
 ## Project status
 
-**Release:** v1.0.0  
+**Version:** v1.0.0  
 **Status:** stable documentation baseline  
+**GitHub Release:** not published yet; release administration remains a separate repository action.  
 **Maintenance model:** update technical guidance when upstream behavior or supported workflows change.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and [CHANGELOG.md](CHANGELOG.md).
