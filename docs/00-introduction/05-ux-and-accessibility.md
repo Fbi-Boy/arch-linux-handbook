@@ -15,9 +15,9 @@ Every procedure should make the current state obvious:
 - **Doing** — presents the smallest safe command sequence.
 - **Recovering** — preserves evidence and isolates the failure.
 
-Use the visual rhythm:
+### Visual rhythm
 
-**STOP → CHECK → VERIFY → CONTINUE**
+STOP → CHECK → VERIFY → CONTINUE
 
 ## Information hierarchy
 
