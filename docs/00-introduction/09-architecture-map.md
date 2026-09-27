@@ -7,7 +7,7 @@ sidebar_label: Architecture Map
 
 This map shows how the handbook connects the machine layers that matter during installation and recovery.
 
-![Arch Linux Handbook architecture map](/arch-linux-handbook/img/architecture-map.svg)
+![Arch Linux Handbook architecture map](./architecture-map.svg)
 
 ## Layer model
 
@@ -32,6 +32,8 @@ Desktop / applications
 A failure should be investigated at the lowest layer that can explain the observed symptom.
 
 ## Operational rule
+
+### Recovery rule
 
 **STOP → CHECK → VERIFY → CONTINUE**
 
