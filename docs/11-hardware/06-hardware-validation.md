@@ -51,4 +51,4 @@ Record hardware model, kernel version, driver, firmware package, test, and resul
 ## References
 
 - [ArchWiki: General recommendations](https://wiki.archlinux.org/title/General_recommendations)
-- [ArchWiki: Hardware detection](https://wiki.archlinux.org/title/Hardware_detection)
+- [ArchWiki: Hardware detection](https://wiki.archlinux.org/title/Category:Hardware_detection_and_troubleshooting)
