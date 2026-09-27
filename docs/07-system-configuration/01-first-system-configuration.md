@@ -8,21 +8,33 @@ These steps are performed after entering the target with `arch-chroot /mnt`.
 
 ## 1. Time zone
 
-List available zones:
+These commands are run inside `arch-chroot`. Do not use `timedatectl status` as the verification step here because several systemd queries depend on the running system's service environment.
+
+List available zones from the filesystem:
 
 ```bash
-timedatectl list-timezones
+ls /usr/share/zoneinfo
 ```
 
 Set the chosen zone:
 
-```ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+```bash
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+```
+
+Verify the link:
+
+```bash
+readlink -f /etc/localtime
 ```
 
 Then synchronize the hardware clock:
 
-```hwclock --systohc
+```bash
+hwclock --systohc
 ```
+
+After the first real boot, verify the running system's time with `timedatectl status`.
 
 Use the actual region/city for the machine rather than copying an unrelated example.
 
@@ -114,12 +126,18 @@ Do not enable multiple competing network managers for the same interface.
 
 ## 8. Verify before bootloader work
 
-```id <username>
+These checks are safe inside the chroot:
+
+```bash
+id <username>
 systemctl is-enabled NetworkManager.service
 locale
+cat /etc/locale.conf
 cat /etc/hostname
-timedatectl status
+readlink -f /etc/localtime
 ```
+
+After the first real boot, use `timedatectl status` to verify the running system's clock and time synchronization.
 
 Then continue to the bootloader-specific page.
 

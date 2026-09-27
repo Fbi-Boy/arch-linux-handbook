@@ -69,107 +69,38 @@ timedatectl status
 
 > ⚠️ **DESTRUCTIVE:** partitioning can permanently destroy data.
 
-Record the disk layout first:
+Do not invent the partition layout from this page. First read [partitioning strategy](../05-storage/01-partitioning-strategy.md), then use [partition and format safely](../05-storage/02-partition-and-format.md).
 
-```bash
-lsblk -f
-fdisk -l
-```
+The storage pages deliberately require a second device check before formatting. If Windows or another OS is present, use the [dual-boot safety path](../14-dual-boot/01-windows-dual-boot-safety.md) before changing partitions.
 
-For a clean UEFI installation, a simple layout is commonly:
+## 5. Format and mount
 
-| Partition | Purpose | Typical filesystem |
-| --- | --- | --- |
-| EFI System Partition | Firmware boot files | FAT32 |
-| Root | Operating system | ext4, Btrfs, or another supported Linux filesystem |
-| Swap | Optional virtual-memory strategy | swap/zram/swapfile |
+Follow [partition and format safely](../05-storage/02-partition-and-format.md) from start to finish.
 
-The exact sizes and filesystem are design decisions. Dual-boot users must preserve Windows partitions.
-
-## 5. Format only verified partitions
-
-The exact device names must come from your own `lsblk` output.
-
-Example placeholders:
-
-```text
-<EFI_PARTITION>
-<ROOT_PARTITION>
-```
-
-Never execute a formatting command until each placeholder has been replaced after a second device check.
-
-Example filesystem creation:
-
-```bash
-mkfs.fat -F 32 <EFI_PARTITION>
-mkfs.ext4 <ROOT_PARTITION>
-```
-
-If the EFI partition belongs to Windows, **do not format it**. Mount and reuse it according to the dual-boot design.
-
-## 6. Mount
-
-Example:
-
-```bash
-mount <ROOT_PARTITION> /mnt
-mount --mkdir <EFI_PARTITION> /mnt/boot
-```
-
-Verify:
+Do not continue until its mount verification passes:
 
 ```bash
 findmnt -R /mnt
+lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINTS
 ```
 
-The root and EFI mounts must point to the intended partitions.
+## 6. Install the base system
 
-## 7. Install base packages
+Use the dedicated [base installation procedure](./04-base-install.md). It contains the concrete `pacstrap`, microcode, `genfstab`, and `arch-chroot` steps.
 
-Install the base system and required firmware using the current Arch Installation Guide procedure.
+The current Arch Installation Guide documents the minimal baseline as `pacstrap -K /mnt base linux linux-firmware`; this handbook adds NetworkManager and CPU microcode according to the chosen hardware/network design.
 
-A typical baseline package set includes the kernel, firmware, and basic userspace required for the chosen installation design.
+Do not invent a package list or mix this procedure with a different installation architecture.
 
-After installation, verify that the target contains the expected system:
+## 7. Enter the installed system
 
-```bash
-ls /mnt
-```
-
-## 8. Generate fstab
-
-Generate filesystem mount definitions:
-
-```bash
-genfstab -U /mnt >> /mnt/etc/fstab
-```
-
-Inspect:
-
-```bash
-cat /mnt/etc/fstab
-```
-
-Check that UUIDs correspond to the actual partitions:
-
-```bash
-lsblk -f
-```
-
-## 9. Enter the installed system
-
-Use the supported Arch chroot procedure:
+The base-install page ends by entering the target with:
 
 ```bash
 arch-chroot /mnt
 ```
 
-Confirm:
-
-```bash
-ls /
-```
+Then continue to [first system configuration](../07-system-configuration/01-first-system-configuration.md).
 
 ## 10. Configure time zone
 
