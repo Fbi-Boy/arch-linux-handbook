@@ -44,6 +44,7 @@ const sidebar = [
       'storage/btrfs-snapshots-and-recovery',
       'storage/storage-recovery-drills',
       'installation/06-installation',
+      'installation/complete-installation-for-beginners',
       'installation/installation-runbook',
       'installation/installation-decision-tree',
       'installation/verification-checklist',
