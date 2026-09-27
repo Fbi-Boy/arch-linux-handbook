@@ -88,7 +88,7 @@ lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINTS
 
 Use the dedicated [base installation procedure](./04-base-install.md). It contains the concrete `pacstrap`, microcode, `genfstab`, and `arch-chroot` steps.
 
-The current Arch Installation Guide documents the minimal baseline as `pacstrap -K /mnt base linux linux-firmware`; this handbook adds NetworkManager and CPU microcode according to the chosen hardware/network design. citeturn0search2turn0search7
+The current Arch Installation Guide documents the minimal baseline as `pacstrap -K /mnt base linux linux-firmware`; this handbook adds NetworkManager and CPU microcode according to the chosen hardware/network design.
 
 Do not invent a package list or mix this procedure with a different installation architecture.
 
