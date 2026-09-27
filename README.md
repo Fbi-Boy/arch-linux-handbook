@@ -1,22 +1,21 @@
 # Arch Linux Handbook
 
-> Professional, practical, and continuously maintained documentation for installing, configuring, securing, troubleshooting, and maintaining Arch Linux.
+> Professional, practical, recovery-first documentation for installing, configuring, securing, troubleshooting, and maintaining Arch Linux.
 
-## Scope
-This handbook follows official Arch documentation and adds explicit checkpoints, failure handling, recovery paths, hardware notes, and reproducible verification.
+## v1.0.0
 
-## Flow
+The first release candidate of the handbook is complete as a cohesive documentation product: installation, system configuration, boot, desktop, hardware, security, development, maintenance, dual boot, troubleshooting, and recovery are connected by one verification-first workflow.
+
+## Handbook flow
+
 Prepare → Verify → Install → Configure → Boot → Desktop → Hardware → Secure → Develop → Maintain → Recover
 
-## Standards
-- Prefer official Arch and upstream documentation.
-- Never assume a disk name.
-- Every major procedure has pre-check, expected result, verification, and recovery.
-- Destructive commands receive explicit warnings.
-- Hardware-specific instructions are separated from the generic path.
-- Commands are reviewed against current upstream documentation.
+### Operating principle
 
-## Start
+STOP → CHECK → VERIFY → CONTINUE
+
+## Start here
+
 1. [Introduction](docs/00-introduction/README.md)
 2. [Preparation](docs/01-preparation/README.md)
 3. [Installation media](docs/02-installation-media/README.md)
@@ -34,10 +33,60 @@ Prepare → Verify → Install → Configure → Boot → Desktop → Hardware �
 15. [Maintenance](docs/15-maintenance/README.md)
 16. [Troubleshooting](docs/99-troubleshooting/README.md)
 
-## Primary references
-- ArchWiki Installation Guide: https://wiki.archlinux.org/title/Installation_guide
-- ArchWiki General Recommendations: https://wiki.archlinux.org/title/General_recommendations
-- ArchWiki: https://wiki.archlinux.org/
+## Quality model
 
-## Status
-Project phase: foundation and research
+Every major procedure is designed around:
+
+- prerequisites and decision points;
+- explicit verification;
+- failure classification;
+- recovery guidance;
+- authoritative references;
+- destructive-operation safety gates.
+
+Automated repository gates validate documentation quality, local links, and the Docusaurus production build.
+
+## Project standards
+
+- Prefer official Arch Linux and upstream documentation.
+- Never assume a disk name or hardware identifier.
+- Avoid partial upgrades.
+- Do not disable package signature verification as a troubleshooting shortcut.
+- Preserve evidence before recovery.
+- Make one controlled change at a time.
+- Keep generic procedures separate from hardware-specific paths.
+
+## References
+
+- [ArchWiki Installation Guide](https://wiki.archlinux.org/title/Installation_guide)
+- [ArchWiki General Recommendations](https://wiki.archlinux.org/title/General_recommendations)
+- [ArchWiki System Maintenance](https://wiki.archlinux.org/title/System_maintenance)
+- [Arch Linux Wiki](https://wiki.archlinux.org/)
+
+## Development
+
+Requirements:
+
+- Node.js 20 or newer
+- npm
+
+Run locally:
+
+```bash
+npm install
+npm run start
+```
+
+Build the production site:
+
+```bash
+npm run build
+```
+
+## Project status
+
+**Release:** v1.0.0  
+**Status:** stable documentation baseline  
+**Maintenance model:** update technical guidance when upstream behavior or supported workflows change.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and [CHANGELOG.md](CHANGELOG.md).
