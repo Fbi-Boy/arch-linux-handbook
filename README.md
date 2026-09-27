@@ -8,11 +8,11 @@ The first release candidate of the handbook is complete as a cohesive documentat
 
 ## Handbook flow
 
-**Prepare → Verify → Install → Configure → Boot → Desktop → Hardware → Secure → Develop → Maintain → Recover**
+Prepare → Verify → Install → Configure → Boot → Desktop → Hardware → Secure → Develop → Maintain → Recover
 
-The operating principle is:
+### Operating principle
 
-**STOP → CHECK → VERIFY → CONTINUE**
+STOP → CHECK → VERIFY → CONTINUE
 
 ## Start here
 
