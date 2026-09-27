@@ -88,7 +88,7 @@ const config = {
           title: 'Project',
           items: [
             {label: 'GitHub', href: 'https://github.com/Fbi-Boy/arch-linux-handbook'},
-            {label: 'Quality loop', to: '/docs/00-introduction/contributor-quality-loop'},
+            {label: 'Quality loop', to: '/docs/introduction/contributor-quality-loop'},
           ],
         },
       ],
