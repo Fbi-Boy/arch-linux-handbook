@@ -6,13 +6,16 @@ const sidebar = [
     items: [
       'introduction/00-introduction',
       'introduction/architecture',
-    'introduction/command-reference',
+      'introduction/command-reference',
       'introduction/content-model',
       'introduction/references',
       'introduction/ux-and-accessibility',
       'introduction/learning-and-recovery-map',
       'introduction/handbook-quality-gate',
       'introduction/roadmap',
+      'introduction/navigation-and-search',
+      'introduction/architecture-map',
+      'introduction/contributor-quality-loop',
     ],
   },
   {
@@ -94,6 +97,7 @@ const sidebar = [
       'maintenance/backup-and-recovery-readiness',
       'maintenance/observability-and-performance',
       'maintenance/package-maintenance-and-cleanup',
+      'maintenance/release-and-readiness',
     ],
   },
   {
@@ -111,6 +115,8 @@ const sidebar = [
       'troubleshooting/storage',
       'troubleshooting/package-signatures',
       'troubleshooting/memory',
+      'troubleshooting/recovery-matrix',
+      'troubleshooting/incident-playbooks',
     ],
   },
 ];
