@@ -76,6 +76,7 @@ const sidebar = [
       'hardware/bluetooth-and-audio',
       'hardware/wayland-display-stack',
       'hardware/hardware-validation',
+      'hardware/laptop-validation',
       'security/12-security',
       'security/security-baseline',
       'security/service-hardening',
@@ -90,6 +91,7 @@ const sidebar = [
       'development/containers-and-virtualization',
       'development/package-management-deep-dive',
       'development/kernel-and-driver-development',
+      'development/reproducible-project-environment',
       'dual-boot/14-dual-boot',
       'dual-boot/windows-dual-boot-safety',
       'maintenance/15-maintenance',
@@ -98,6 +100,8 @@ const sidebar = [
       'maintenance/observability-and-performance',
       'maintenance/package-maintenance-and-cleanup',
       'maintenance/release-and-readiness',
+      'maintenance/dependency-maintenance',
+      'maintenance/offline-recovery-kit',
     ],
   },
   {
@@ -117,6 +121,7 @@ const sidebar = [
       'troubleshooting/memory',
       'troubleshooting/recovery-matrix',
       'troubleshooting/incident-playbooks',
+      'troubleshooting/logs-and-evidence',
     ],
   },
 ];
