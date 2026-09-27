@@ -19,7 +19,7 @@ The handbook is organized around a practical lifecycle:
 
 | Situation | Start here | Next move |
 | --- | --- | --- |
-| New installation | [Preparation](../01-preparation/01-preparation.md) | Follow the installation path |
+| New installation | [Preparation](../01-preparation/01-preflight.md) | Follow the installation path |
 | Existing system will not boot | [Boot troubleshooting](../99-troubleshooting/boot.md) | Use the recovery path |
 | No network | [Network troubleshooting](../99-troubleshooting/network.md) | Classify device, link, IP, route, DNS |
 | Display or login failure | [Display troubleshooting](../99-troubleshooting/display.md) | Move from TTY to GPU/session layers |
