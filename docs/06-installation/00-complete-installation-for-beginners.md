@@ -1,9 +1,3 @@
----
-title: "Complete Arch Linux Installation for Absolute Beginners"
-sidebar_label: "Complete Beginner Installation"
-slug: /06-installation/complete-beginner-installation
----
-
 # Complete Arch Linux Installation for Absolute Beginners
 
 > **Goal:** install a clean UEFI/GPT Arch Linux system from a Windows/Linux computer, configure a normal user, install a bootloader, boot Arch successfully, install a desktop, and perform a final health check.
@@ -20,7 +14,7 @@ You will see the same rule many times:
 
 Do not skip a verification because the previous command "looked normal".
 
-### What this guide assumes
+> **What this guide assumes:**
 
 The main path assumes:
 
@@ -35,13 +29,13 @@ The main path assumes:
 - GNOME will be used as the first desktop environment.
 - You have a backup of anything important.
 
-### If Windows is still on the disk
+> **If Windows is still on the disk:**
 
 **Do not follow the destructive clean-disk path.**
 
 Use the dedicated [Windows dual-boot safety path](../14-dual-boot/01-windows-dual-boot-safety.md) first. A dual-boot installation has different partitioning rules because the existing Windows EFI System Partition must normally be preserved.
 
-### If you want encryption, Btrfs, RAID, LVM, ZFS, a custom kernel, or a custom boot design
+> **If you want encryption, Btrfs, RAID, LVM, ZFS, a custom kernel, or a custom boot design:**
 
 Stop here and use the specialist documentation instead:
 
@@ -54,13 +48,13 @@ The beginner path deliberately chooses fewer moving parts.
 
 ---
 
-# PART 0 — Understand what you are about to do
+## PART 0 — Understand what you are about to do
 
 ## The final result
 
 When everything is finished, the computer should work approximately like this:
 
-```
+```text
 Power button
     ↓
 UEFI firmware
@@ -80,7 +74,7 @@ GDM login screen
 GNOME desktop
     ↓
 your normal user
-```
+```text
 
 The installation is not one command. It is a chain.
 
@@ -109,15 +103,15 @@ If one link is wrong, do not randomly change another link. Find the first broken
 
 ---
 
-# PART 1 — Before you start
+## PART 1 — Before you start
 
 ## STEP 1 — Back up your important files
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Make sure a failed installation cannot destroy the only copy of your important data.
 
-### 👀 You should have
+> **👀 You should have:**
 
 At least one copy of important files somewhere **outside the disk you may erase**:
 
@@ -130,21 +124,21 @@ At least one copy of important files somewhere **outside the disk you may erase*
 - passwords or recovery information
 - Windows recovery information if Windows exists
 
-### ⌨️ Do this
+> **⌨️ Do this:**
 
 Use your normal operating system to copy important files to an external disk or trusted backup destination.
 
-### ✅ Correct result
+> **✅ Correct result:**
 
 You can identify where your backup is and you have tested that important files can actually be opened.
 
-### ❌ If this is not true
+> **❌ If this is not true:**
 
 **STOP.**
 
 Do not partition or format anything yet.
 
-### ⚠️ Danger
+> **⚠️ Danger:**
 
 A partitioning or formatting command can destroy data. Being an administrator does not make a destructive command reversible.
 
@@ -154,23 +148,23 @@ A partitioning or formatting command can destroy data. Being an administrator do
 
 Choose exactly one:
 
-### Path A — Erase the entire target disk
+> **Path A — Erase the entire target disk:**
 
 Use this guide's main path.
 
 **Everything on the selected target disk will be removed.**
 
-### Path B — Keep Windows and dual boot
+> **Path B — Keep Windows and dual boot:**
 
 Do **not** use the clean-disk partitioning steps below.
 
 Read [Windows dual-boot safety](../14-dual-boot/01-windows-dual-boot-safety.md) first.
 
-### Path C — Keep existing Linux partitions or use advanced storage
+> **Path C — Keep existing Linux partitions or use advanced storage:**
 
 Do not use the beginner partitioning sequence. Use the storage documentation.
 
-### ✅ Correct result
+> **✅ Correct result:**
 
 You can say out loud:
 
@@ -182,15 +176,15 @@ If you cannot say that confidently:
 
 ---
 
-# PART 2 — Prepare the Arch USB
+## PART 2 — Prepare the Arch USB
 
 ## STEP 3 — Download the official Arch ISO
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Get the official installation image.
 
-### ⌨️ Do this
+> **⌨️ Do this:**
 
 Open the official Arch Linux download page:
 
@@ -198,7 +192,7 @@ https://archlinux.org/download/
 
 Download the current x86_64 installation image.
 
-### 👀 What to notice
+> **👀 What to notice:**
 
 The download page publishes:
 
@@ -207,15 +201,15 @@ The download page publishes:
 - BLAKE2b checksum
 - PGP signature information
 
-### ✅ Correct result
+> **✅ Correct result:**
 
 You have an ISO file and the corresponding checksum/signature files.
 
-### ❌ If the download is incomplete
+> **❌ If the download is incomplete:**
 
 Download it again before continuing.
 
-### ⚠️ Danger
+> **⚠️ Danger:**
 
 Do not use an ISO from an unknown mirror, random file-sharing page, or modified third-party image.
 
@@ -223,11 +217,11 @@ Do not use an ISO from an unknown mirror, random file-sharing page, or modified 
 
 ## STEP 4 — Verify the ISO
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Make sure the downloaded image is not corrupted before writing it to USB.
 
-### On Windows
+> **On Windows:**
 
 Use a trusted checksum utility or PowerShell to calculate the SHA-256 hash of the ISO.
 
@@ -235,35 +229,35 @@ Example:
 
 ```powershell
 Get-FileHash .\\archlinux-YYYY.MM.DD-x86_64.iso -Algorithm SHA256
-```
+```text
 
 Replace the filename with the actual filename you downloaded.
 
 Compare the resulting hash with the SHA-256 value published on the official Arch download page.
 
-### On Linux
+> **On Linux:**
 
 After downloading the checksum file:
 
 ```bash
 sha256sum -c sha256sums.txt
-```
+```text
 
 The official download page also documents BLAKE2b and PGP verification.
 
-### 👀 Correct result
+> **👀 Correct result:**
 
 The checksum matches exactly.
 
 For a checksum comparison, **one character difference is a failure**.
 
-### ❌ If it does not match
+> **❌ If it does not match:**
 
 Delete the ISO and download it again.
 
 Do not continue with a failed checksum.
 
-### ⚠️ Why this matters
+> **⚠️ Why this matters:**
 
 Writing a bad ISO to USB can create confusing installation failures later.
 
@@ -271,17 +265,17 @@ Writing a bad ISO to USB can create confusing installation failures later.
 
 ## STEP 5 — Write the ISO to a USB drive
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Turn the ISO into bootable installation media.
 
-### ⚠️ Danger
+> **⚠️ Danger:**
 
 Writing an ISO with a disk-writing tool can erase the selected USB drive.
 
 **Confirm the USB device before writing.**
 
-### On Windows
+> **On Windows:**
 
 Use a reputable image-writing application such as Rufus or another trusted ISO-writing utility.
 
@@ -295,11 +289,11 @@ Select:
 
 Do not select your internal SSD/HDD.
 
-### ✅ Correct result
+> **✅ Correct result:**
 
 The USB-writing application reports success.
 
-### ❌ If the tool reports an error
+> **❌ If the tool reports an error:**
 
 Do not assume the USB is usable.
 
@@ -307,15 +301,15 @@ Try another USB port or USB drive, then write the verified ISO again.
 
 ---
 
-# PART 3 — Boot the installer
+## PART 3 — Boot the installer
 
 ## STEP 6 — Boot from the Arch USB
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Start the Arch installation environment instead of the installed operating system.
 
-### ⌨️ Do this
+> **⌨️ Do this:**
 
 1. Shut down the computer.
 2. Insert the Arch USB.
@@ -325,17 +319,17 @@ Start the Arch installation environment instead of the installed operating syste
 
 The boot-menu key varies by manufacturer. Common examples include `F12`, `F11`, `Esc`, or `F8`.
 
-### 👀 Correct result
+> **👀 Correct result:**
 
 You reach the Arch Linux installation environment and a terminal prompt.
 
-### ❌ If Windows starts instead
+> **❌ If Windows starts instead:**
 
 The computer probably booted the internal disk.
 
 Restart and choose the USB's UEFI entry.
 
-### ⚠️ Danger
+> **⚠️ Danger:**
 
 Do not change random firmware settings just because the USB did not appear. First confirm the USB was written correctly and check the computer manufacturer's boot-menu instructions.
 
@@ -343,25 +337,25 @@ Do not change random firmware settings just because the USB did not appear. Firs
 
 ## STEP 7 — Confirm UEFI mode
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Make sure the installer was booted in UEFI mode.
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 ls /sys/firmware/efi/efivars
-```
+```text
 
-### 👀 Correct result
+> **👀 Correct result:**
 
 The command lists EFI variables/directories instead of reporting that the path does not exist.
 
-### ❌ If you get
+> **❌ If you get:**
 
-```
+```text
 ls: cannot access '/sys/firmware/efi/efivars': No such file or directory
-```
+```text
 
 **STOP.**
 
@@ -369,27 +363,27 @@ You likely booted the USB in legacy/BIOS mode.
 
 Restart and select the UEFI version of the USB.
 
-### ⚠️ Why this matters
+> **⚠️ Why this matters:**
 
 This guide uses GPT + UEFI + systemd-boot. Do not continue with a different firmware mode.
 
 ---
 
-# PART 4 — Connect to the internet
+## PART 4 — Connect to the internet
 
 ## STEP 8 — Check the network device
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Make sure the live environment can see your network hardware.
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 ip link
-```
+```text
 
-### 👀 Look for
+> **👀 Look for:**
 
 An interface other than the loopback interface.
 
@@ -400,13 +394,13 @@ Typical names can look like:
 
 The exact name depends on the hardware.
 
-### ❌ If Wi-Fi is missing
+> **❌ If Wi-Fi is missing:**
 
 Check:
 
 ```bash
 rfkill list
-```
+```text
 
 If the adapter is blocked, investigate the hardware/firmware or physical wireless switch before continuing.
 
@@ -414,20 +408,20 @@ If the adapter is blocked, investigate the hardware/firmware or physical wireles
 
 ## STEP 9 — Connect to Wi-Fi if needed
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Connect the live installer to the internet.
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 iwctl
-```
+```text
 
 Inside `iwctl`:
 
 ```device list
-```
+```text
 
 Find the Wi-Fi device name.
 
@@ -436,7 +430,7 @@ Then:
 ```station <wifi-device> scan
 station <wifi-device> get-networks
 station <wifi-device> connect "<your-SSID>"
-```
+```text
 
 Replace:
 
@@ -448,22 +442,22 @@ Enter the Wi-Fi password when asked.
 Exit:
 
 ```exit
-```
+```text
 
-### 👀 Correct result
+> **👀 Correct result:**
 
 The Wi-Fi connection is established.
 
-### ⌨️ Verify
+> **⌨️ Verify:**
 
 ```ping -c 3 ping.archlinux.org
-```
+```text
 
-### ✅ Correct result
+> **✅ Correct result:**
 
 You receive replies.
 
-### ❌ If ping fails
+> **❌ If ping fails:**
 
 Check in this order:
 
@@ -478,64 +472,64 @@ Do not begin disk operations while you are still unsure whether the live environ
 
 ---
 
-# PART 5 — Check the system clock
+## PART 5 — Check the system clock
 
 ## STEP 10 — Enable network time synchronization in the live environment
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Keep the installer clock accurate.
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 timedatectl set-ntp true
 timedatectl status
-```
+```text
 
-### 👀 Correct result
+> **👀 Correct result:**
 
 The system reports a synchronized or synchronizing network clock.
 
-### ❌ If time synchronization fails
+> **❌ If time synchronization fails:**
 
 Fix the network connection first.
 
 ---
 
-# PART 6 — Identify the disk before destroying anything
+## PART 6 — Identify the disk before destroying anything
 
 ## STEP 11 — List every storage device
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Know exactly which disk you are going to install to.
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 lsblk -o NAME,SIZE,TYPE,FSTYPE,LABEL,UUID,MOUNTPOINTS,MODEL
-```
+```text
 
 You can also run:
 
 ```bash
 fdisk -l
-```
+```text
 
-### 👀 What you are looking for
+> **👀 What you are looking for:**
 
 You may see devices such as:
 
-```
+```text
 nvme0n1   476.9G   disk   ...   Internal SSD
 sda       931.5G   disk   ...   External HDD
 sdb        14.6G   disk   ...   USB installer
-```
+```text
 
 The names and sizes on your computer will be different.
 
-### 🚨 Critical rule
+> **🚨 Critical rule:**
 
 **Never assume `/dev/nvme0n1` is your target.**
 
@@ -548,11 +542,11 @@ Your target must be identified using evidence such as:
 - whether it is the USB installer
 - whether it contains data you need
 
-### ✅ Correct result
+> **✅ Correct result:**
 
 You can point to one disk and explain why it is the installation target.
 
-### ❌ If two disks look similar
+> **❌ If two disks look similar:**
 
 **STOP.**
 
@@ -562,7 +556,7 @@ Disconnect unnecessary external drives if possible and inspect again.
 
 ---
 
-# PART 7 — Final destructive-operation checkpoint
+## PART 7 — Final destructive-operation checkpoint
 
 ## STEP 12 — Confirm the target disk one last time
 
@@ -575,7 +569,7 @@ SIZE:
 DEVICE:
 DATA ON IT MAY BE DESTROYED: YES
 BACKUP VERIFIED: YES
-```
+```text
 
 For example:
 
@@ -586,36 +580,36 @@ SIZE: 476.9G
 DEVICE: /dev/nvme0n1
 DATA ON IT MAY BE DESTROYED: YES
 BACKUP VERIFIED: YES
-```
+```text
 
-### STOP condition
+> **STOP condition:**
 
 If you cannot fill all fields confidently, do not continue.
 
-### ⚠️ Danger
+> **⚠️ Danger:**
 
 The commands from the next section modify the partition table.
 
 ---
 
-# PART 8 — Create the GPT partition table
+## PART 8 — Create the GPT partition table
 
 ## STEP 13 — Open the target disk with fdisk
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Create two partitions:
 
 1. EFI System Partition: 1 GiB
 2. Linux root partition: remaining space
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 Replace `/dev/<target-disk>` only after verifying the disk in Step 12.
 
 ```bash
 fdisk /dev/<target-disk>
-```
+```text
 
 Examples:
 
@@ -624,7 +618,7 @@ Examples:
 
 Do not blindly copy an example device name.
 
-### ⚠️ Danger
+> **⚠️ Danger:**
 
 You are now operating on the selected disk.
 
@@ -636,11 +630,11 @@ Inside `fdisk`:
 
 ```text
 g
-```
+```text
 
 This creates a new GPT partition table.
 
-### 🚨 STOP
+> **🚨 STOP:**
 
 This destroys the existing partition-table layout on the selected disk.
 
@@ -654,7 +648,7 @@ Inside `fdisk`:
 
 ```text
 n
-```
+```text
 
 Use:
 
@@ -666,13 +660,13 @@ Then set the partition type:
 
 ```text
 t
-```
+```text
 
 For partition 1, choose the EFI System type.
 
 If `fdisk` asks for a type number, use its displayed menu and select the entry named **EFI System**. Do not rely on a number copied from an old tutorial if your `fdisk` menu differs.
 
-### 👀 Correct result
+> **👀 Correct result:**
 
 Partition 1 is approximately 1 GiB and its type is EFI System.
 
@@ -684,7 +678,7 @@ Inside `fdisk`:
 
 ```text
 n
-```
+```text
 
 Use:
 
@@ -692,14 +686,14 @@ Use:
 - first sector: press Enter
 - last sector: press Enter to use the remaining disk space
 
-### 👀 Correct result
+> **👀 Correct result:**
 
 You should now have approximately:
 
 ```text
 Partition 1   ~1 GiB   EFI System
 Partition 2   remaining space   Linux filesystem
-```
+```text
 
 ---
 
@@ -709,18 +703,18 @@ Inside `fdisk`:
 
 ```text
 p
-```
+```text
 
 Read the complete table.
 
-### You must see
+> **You must see:**
 
 - GPT partition table
 - partition 1 = EFI System
 - partition 2 = Linux filesystem
 - expected disk size
 
-### ❌ If anything is wrong
+> **❌ If anything is wrong:**
 
 Do **not** use `w`.
 
@@ -728,31 +722,31 @@ Fix the table or quit without saving:
 
 ```text
 q
-```
+```text
 
 Then start again only after understanding what was wrong.
 
-### ✅ If everything is correct
+> **✅ If everything is correct:**
 
 Write the partition table:
 
 ```text
 w
-```
+```text
 
 ---
 
-# PART 9 — Verify the new partitions
+## PART 9 — Verify the new partitions
 
 ## STEP 18 — Identify the partition names
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 lsblk -o NAME,SIZE,TYPE,FSTYPE,PARTTYPE,MOUNTPOINTS,MODEL
-```
+```text
 
-### Typical result
+> **Typical result:**
 
 For NVMe, it may look like:
 
@@ -760,7 +754,7 @@ For NVMe, it may look like:
 nvme0n1
 ├─nvme0n1p1   1G
 └─nvme0n1p2   rest
-```
+```text
 
 For SATA, it may look like:
 
@@ -768,11 +762,11 @@ For SATA, it may look like:
 sda
 ├─sda1        1G
 └─sda2        rest
-```
+```text
 
 Your names may differ.
 
-### ⚠️ Important
+> **⚠️ Important:**
 
 From now on:
 
@@ -783,29 +777,29 @@ Do not type the angle brackets.
 
 ---
 
-# PART 10 — Format the partitions
+## PART 10 — Format the partitions
 
 ## STEP 19 — Format the EFI System Partition
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Create the FAT32 filesystem required by the UEFI System Partition.
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 Replace the placeholder with your actual partition 1:
 
 ```bash
 mkfs.fat -F 32 /dev/<esp-partition>
-```
+```text
 
-### ⚠️ Danger
+> **⚠️ Danger:**
 
 Formatting the wrong partition destroys data on that partition.
 
 Before running it, compare the partition name against Step 18.
 
-### ✅ Correct result
+> **✅ Correct result:**
 
 The command completes without an error.
 
@@ -813,19 +807,19 @@ The command completes without an error.
 
 ## STEP 20 — Format the root partition
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 mkfs.ext4 /dev/<root-partition>
-```
+```text
 
-### ⚠️ Danger
+> **⚠️ Danger:**
 
 This destroys the contents of the selected root partition.
 
 This is expected only because Step 12 explicitly confirmed a clean-disk installation.
 
-### ✅ Correct result
+> **✅ Correct result:**
 
 The ext4 filesystem is created successfully.
 
@@ -833,12 +827,12 @@ The ext4 filesystem is created successfully.
 
 ## STEP 21 — Verify the filesystems
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```lsblk -f
-```
+```text
 
-### 👀 Correct result
+> **👀 Correct result:**
 
 You should see:
 
@@ -847,22 +841,22 @@ You should see:
 
 ---
 
-# PART 11 — Mount the new system
+## PART 11 — Mount the new system
 
 ## STEP 22 — Mount the root filesystem
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 mount /dev/<root-partition> /mnt
-```
+```text
 
-### Verify
+> **Verify:**
 
 ```findmnt /mnt
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 The root partition is mounted at `/mnt`.
 
@@ -870,35 +864,35 @@ The root partition is mounted at `/mnt`.
 
 ## STEP 23 — Create the boot mount directory
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 mkdir -p /mnt/boot
-```
+```text
 
 ---
 
 ## STEP 24 — Mount the EFI System Partition
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 mount /dev/<esp-partition> /mnt/boot
-```
+```text
 
-### Verify
+> **Verify:**
 
 ```findmnt -R /mnt
-```
+```text
 
-### 👀 Correct result
+> **👀 Correct result:**
 
 You should see:
 
 - root filesystem mounted at `/mnt`
 - EFI System Partition mounted at `/mnt/boot`
 
-### ❌ If the mount layout is wrong
+> **❌ If the mount layout is wrong:**
 
 Stop.
 
@@ -908,23 +902,23 @@ Fix the mount layout first.
 
 ---
 
-# PART 12 — Install the base Arch system
+## PART 12 — Install the base Arch system
 
 ## STEP 25 — Final mount check
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINTS
 findmnt -R /mnt
-```
+```text
 
-### You need
+> **You need:**
 
 ```text
 ROOT → /mnt
 ESP  → /mnt/boot
-```
+```text
 
 Only continue when that is true.
 
@@ -932,33 +926,33 @@ Only continue when that is true.
 
 ## STEP 26 — Install the base packages
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Put the minimal Arch operating system into `/mnt`.
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 pacstrap -K /mnt base linux linux-firmware networkmanager
-```
+```text
 
-### Why these packages?
+> **Why these packages?:**
 
 - `base` → core Arch userspace
 - `linux` → standard Arch kernel
 - `linux-firmware` → firmware used by many hardware devices
 - `networkmanager` → network management after installation
 
-### 👀 Correct result
+> **👀 Correct result:**
 
 `pacstrap` completes without a fatal error.
 
-### ❌ If package download fails
+> **❌ If package download fails:**
 
 Check:
 
 ```ping -c 3 ping.archlinux.org
-```
+```text
 
 Then inspect the error before retrying.
 
@@ -968,89 +962,89 @@ Do not randomly delete package databases or switch mirrors without understanding
 
 ## STEP 27 — Install CPU microcode
 
-### Find your CPU vendor
+> **Find your CPU vendor:**
 
 Run:
 
 ```bash
 lscpu | grep -E 'Vendor ID|Model name'
-```
+```text
 
-### AMD
+> **AMD:**
 
 ```bash
 pacstrap -K /mnt amd-ucode
-```
+```text
 
-### Intel
+> **Intel:**
 
 ```bash
 pacstrap -K /mnt intel-ucode
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 The package matching your CPU vendor is installed.
 
-### Why?
+> **Why?:**
 
 CPU microcode provides processor updates that can improve stability and address processor-level issues.
 
 ---
 
-# PART 13 — Generate fstab
+## PART 13 — Generate fstab
 
 ## STEP 28 — Generate the filesystem table
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Tell the installed system which filesystems to mount automatically during boot.
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 genfstab -U /mnt >> /mnt/etc/fstab
-```
+```text
 
-### Verify
+> **Verify:**
 
 ```cat /mnt/etc/fstab
-```
+```text
 
-### 👀 Correct result
+> **👀 Correct result:**
 
 You should see entries for:
 
 - the root filesystem
 - the EFI System Partition
 
-### ❌ If the file is empty or obviously wrong
+> **❌ If the file is empty or obviously wrong:**
 
 Stop and inspect:
 
 ```lsblk -f
 findmnt -R /mnt
-```
+```text
 
 Do not reboot.
 
 ---
 
-# PART 14 — Enter the new Arch system
+## PART 14 — Enter the new Arch system
 
 ## STEP 29 — Enter chroot
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Configure the newly installed Arch system.
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 arch-chroot /mnt
-```
+```text
 
-### 👀 You are now inside the new system
+> **👀 You are now inside the new system:**
 
 The shell prompt may look different.
 
@@ -1060,11 +1054,11 @@ From this point, paths such as:
 /etc
 /boot
 /home
-```
+```text
 
 refer to the new Arch installation.
 
-### Important chroot rule
+> **Important chroot rule:**
 
 Some systemd commands need a running system and D-Bus. Do not use commands such as `timedatectl`, `hostnamectl`, or `localectl` as the primary configuration/verification mechanism inside this chroot.
 
@@ -1072,11 +1066,11 @@ Use direct configuration files while inside chroot.
 
 ---
 
-# PART 15 — Set the timezone
+## PART 15 — Set the timezone
 
 ## STEP 30 — Find your timezone
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Tell Arch which timezone the computer uses.
 
@@ -1088,28 +1082,28 @@ For Indonesia, common examples include:
 
 Choose the timezone matching your actual location.
 
-### ⌨️ Verify the directory exists
+> **⌨️ Verify the directory exists:**
 
 ```bash
 ls /usr/share/zoneinfo/Asia
-```
+```text
 
-### ⌨️ Set it
+> **⌨️ Set it:**
 
 Example for Jakarta:
 
 ```bash
 ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
-```
+```text
 
 Replace the path if your timezone is different.
 
-### Verify
+> **Verify:**
 
 ```readlink -f /etc/localtime
-```
+```text
 
-### 👀 Correct result
+> **👀 Correct result:**
 
 The command prints the timezone you selected.
 
@@ -1117,42 +1111,42 @@ The command prints the timezone you selected.
 
 ## STEP 31 — Write the hardware clock
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 hwclock --systohc
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 The command returns without a fatal error.
 
 ---
 
-# PART 16 — Configure language
+## PART 16 — Configure language
 
 ## STEP 32 — Edit locale.gen
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Enable the language/locale that your system will generate.
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```nano /etc/locale.gen
-```
+```text
 
 Find:
 
 ```text
 #en_US.UTF-8 UTF-8
-```
+```text
 
 Remove the `#`:
 
 ```text
 en_US.UTF-8 UTF-8
-```
+```text
 
 Save and exit.
 
@@ -1161,13 +1155,13 @@ In nano:
 - `Ctrl+O` → Enter to save
 - `Ctrl+X` → exit
 
-### STEP 33 — Generate the locale
+> **STEP 33 — Generate the locale:**
 
 ```bash
 locale-gen
-```
+```text
 
-### 👀 Correct result
+> **👀 Correct result:**
 
 The selected locale is generated successfully.
 
@@ -1175,26 +1169,26 @@ The selected locale is generated successfully.
 
 ## STEP 34 — Create locale.conf
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 echo 'LANG=en_US.UTF-8' > /etc/locale.conf
-```
+```text
 
-### Verify
+> **Verify:**
 
 ```cat /etc/locale.conf
-```
+```text
 
 Expected:
 
 ```text
 LANG=en_US.UTF-8
-```
+```text
 
 ---
 
-# PART 17 — Configure the keyboard
+## PART 17 — Configure the keyboard
 
 ## STEP 35 — Configure the console keyboard
 
@@ -1202,22 +1196,22 @@ For a standard US keyboard:
 
 ```bash
 echo 'KEYMAP=us' > /etc/vconsole.conf
-```
+```text
 
 If your physical keyboard uses another layout, replace `us` with the correct layout.
 
-### Verify
+> **Verify:**
 
 ```cat /etc/vconsole.conf
-```
+```text
 
-### Important
+> **Important:**
 
 This setting controls the Linux virtual console. Desktop keyboard settings can be configured later in GNOME.
 
 ---
 
-# PART 18 — Give the computer a hostname
+## PART 18 — Give the computer a hostname
 
 ## STEP 36 — Choose a hostname
 
@@ -1227,54 +1221,54 @@ Example:
 
 ```text
 arch-pc
-```
+```text
 
 Use a simple name without spaces.
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```echo 'arch-pc' > /etc/hostname
-```
+```text
 
 Replace `arch-pc` if you want another name.
 
-### Verify
+> **Verify:**
 
 ```cat /etc/hostname
-```
+```text
 
 ---
 
-# PART 19 — Set the root password
+## PART 19 — Set the root password
 
 ## STEP 37 — Set root password
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```passwd
-```
+```text
 
 Enter a strong password twice.
 
-### Important
+> **Important:**
 
 Nothing may appear while you type the password. That is normal.
 
-### Correct result
+> **Correct result:**
 
 You receive a success message.
 
-### Security rule
+> **Security rule:**
 
 Do not put the password into this documentation, shell history, screenshots, Git commits, or chat messages.
 
 ---
 
-# PART 20 — Create your normal user
+## PART 20 — Create your normal user
 
 ## STEP 38 — Create the user account
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Use a normal account for daily work instead of logging into the desktop as root.
 
@@ -1284,14 +1278,14 @@ Example:
 
 ```bash
 useradd -m -G wheel fabi
-```
+```text
 
 Replace `fabi` with your own username.
 
-### Verify
+> **Verify:**
 
 ```id fabi
-```
+```text
 
 Expected output includes the user and the `wheel` group.
 
@@ -1301,25 +1295,25 @@ Expected output includes the user and the `wheel` group.
 
 ```bash
 passwd fabi
-```
+```text
 
 Replace `fabi` with your actual username.
 
-### Correct result
+> **Correct result:**
 
 The password is accepted.
 
 ---
 
-# PART 21 — Configure sudo
+## PART 21 — Configure sudo
 
 ## STEP 40 — Install sudo
 
 ```bash
 pacman -S sudo
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 The package installs successfully.
 
@@ -1327,95 +1321,95 @@ The package installs successfully.
 
 ## STEP 41 — Safely enable wheel sudo access
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Allow members of the `wheel` group to use `sudo`.
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```EDITOR=nano visudo
-```
+```text
 
 Find:
 
 ```text
 # %wheel ALL=(ALL:ALL) ALL
-```
+```text
 
 Change it to:
 
 ```text
 %wheel ALL=(ALL:ALL) ALL
-```
+```text
 
 Save and exit.
 
-### Why use visudo?
+> **Why use visudo?:**
 
 `visudo` checks sudoers syntax before accepting the file. A malformed sudoers file can disable sudo.
 
-### Verify
+> **Verify:**
 
 ```visudo -c
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 You should see a syntax check success.
 
 ---
 
-# PART 22 — Configure networking for the installed system
+## PART 22 — Configure networking for the installed system
 
 ## STEP 42 — Enable NetworkManager
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Make networking start automatically after the real system boots.
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```systemctl enable NetworkManager.service
-```
+```text
 
-### Verify
+> **Verify:**
 
 ```systemctl is-enabled NetworkManager.service
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 ```enabled
-```
+```text
 
-### Important
+> **Important:**
 
 Do not enable multiple competing network managers for the same interface unless you intentionally configured them to cooperate.
 
 ---
 
-# PART 23 — Rebuild the initramfs
+## PART 23 — Rebuild the initramfs
 
 ## STEP 43 — Generate initramfs
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Create the early boot files needed to start Linux.
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 mkinitcpio -P
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 The command completes successfully and creates the kernel initramfs files under `/boot`.
 
-### Verify
+> **Verify:**
 
 ```ls -lh /boot
-```
+```text
 
 You should see files such as:
 
@@ -1423,11 +1417,11 @@ You should see files such as:
 vmlinuz-linux
 initramfs-linux.img
 initramfs-linux-fallback.img
-```
+```text
 
 You may also see the CPU microcode image.
 
-### ❌ If mkinitcpio fails
+> **❌ If mkinitcpio fails:**
 
 Do not continue to bootloader installation blindly.
 
@@ -1437,21 +1431,21 @@ Read the first meaningful error and compare it with:
 
 ---
 
-# PART 24 — Install systemd-boot
+## PART 24 — Install systemd-boot
 
 ## STEP 44 — Verify the ESP is really mounted at /boot
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 findmnt /boot
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 The output identifies your FAT32 EFI System Partition.
 
-### ⚠️ Danger
+> **⚠️ Danger:**
 
 If `/boot` is not the ESP, stop.
 
@@ -1467,49 +1461,49 @@ First exit the ordinary chroot:
 
 ```bash
 exit
-```
+```text
 
 You are back in the live environment.
 
 Confirm:
 
 ```findmnt -R /mnt
-```
+```text
 
 Then enter with systemd mode:
 
 ```arch-chroot -S /mnt
-```
+```text
 
-### Now run
+> **Now run:**
 
 ```bootctl --esp-path=/boot install
-```
+```text
 
-### Verify
+> **Verify:**
 
 ```bootctl --esp-path=/boot status
-```
+```text
 
-### 👀 Correct result
+> **👀 Correct result:**
 
 systemd-boot is installed to the ESP and a UEFI boot entry is available.
 
-### Why the `-S` mode?
+> **Why the `-S` mode?:**
 
 Current Arch documentation notes that systemd-boot needs access to UEFI variables when creating the boot entry, and `arch-chroot -S` provides the systemd-mode environment needed for that operation.
 
 ---
 
-# PART 25 — Create the systemd-boot entry
+## PART 25 — Create the systemd-boot entry
 
 ## STEP 46 — Check the kernel files
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 ls -lh /boot
-```
+```text
 
 You need to identify:
 
@@ -1521,32 +1515,32 @@ For AMD, it is normally:
 
 ```text
 amd-ucode.img
-```
+```text
 
 For Intel:
 
 ```text
 intel-ucode.img
-```
+```text
 
 ---
 
 ## STEP 47 — Find the root UUID
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```blkid /dev/<root-partition>
-```
+```text
 
 Example output:
 
 ```text
 /dev/nvme0n1p2: UUID="1234-..." TYPE="ext4"
-```
+```text
 
 Copy only the UUID value.
 
-### ⚠️ Do not guess the UUID
+> **⚠️ Do not guess the UUID:**
 
 The boot entry must contain the UUID belonging to the root filesystem.
 
@@ -1554,12 +1548,12 @@ The boot entry must contain the UUID belonging to the root filesystem.
 
 ## STEP 48 — Create loader.conf
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bash
 mkdir -p /boot/loader/entries
 nano /boot/loader/loader.conf
-```
+```text
 
 Enter:
 
@@ -1567,7 +1561,7 @@ Enter:
 default arch.conf
 timeout 4
 editor no
-```
+```text
 
 Save and exit.
 
@@ -1575,10 +1569,10 @@ Save and exit.
 
 ## STEP 49 — Create the Arch boot entry
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```nano /boot/loader/entries/arch.conf
-```
+```text
 
 For AMD:
 
@@ -1588,7 +1582,7 @@ linux   /vmlinuz-linux
 initrd  /amd-ucode.img
 initrd  /initramfs-linux.img
 options root=UUID=ROOT-UUID rw
-```
+```text
 
 For Intel:
 
@@ -1598,36 +1592,36 @@ linux   /vmlinuz-linux
 initrd  /intel-ucode.img
 initrd  /initramfs-linux.img
 options root=UUID=ROOT-UUID rw
-```
+```text
 
 Replace `ROOT-UUID` with the exact UUID from Step 47.
 
-### Critical rule
+> **Critical rule:**
 
 The microcode initramfs must appear **before** the normal initramfs.
 
-### Verify the file
+> **Verify the file:**
 
 ```cat /boot/loader/entries/arch.conf
-```
+```text
 
 ---
 
-# PART 26 — Verify the bootloader before rebooting
+## PART 26 — Verify the bootloader before rebooting
 
 ## STEP 50 — Check bootctl
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```bootctl --esp-path=/boot status
-```
+```text
 
 Then:
 
 ```bootctl --esp-path=/boot list
-```
+```text
 
-### 👀 Correct result
+> **👀 Correct result:**
 
 You should see:
 
@@ -1636,14 +1630,14 @@ You should see:
 - the kernel path
 - the initramfs path
 
-### ❌ If Arch Linux is missing
+> **❌ If Arch Linux is missing:**
 
 Check:
 
 ```cat /boot/loader/loader.conf
 cat /boot/loader/entries/arch.conf
 ls -lh /boot
-```
+```text
 
 Do not reboot until the entry is correct.
 
@@ -1651,24 +1645,24 @@ Do not reboot until the entry is correct.
 
 ## STEP 51 — Check the UEFI boot entries
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```efibootmgr -v
-```
+```text
 
-### 👀 Correct result
+> **👀 Correct result:**
 
 There should be a Linux Boot Manager/systemd-boot entry.
 
 If Windows exists on another disk, its Microsoft Boot Manager entry should be preserved.
 
-### ⚠️ Important
+> **⚠️ Important:**
 
 Do not delete UEFI entries just because you see entries you do not recognize. Investigate first.
 
 ---
 
-# PART 27 — Final pre-reboot gate
+## PART 27 — Final pre-reboot gate
 
 ## STEP 52 — Check everything
 
@@ -1687,11 +1681,11 @@ ls -lh /boot
 bootctl --esp-path=/boot status
 bootctl --esp-path=/boot list
 efibootmgr -v
-```
+```text
 
 Replace `<your-username>` with your actual username.
 
-### You should be able to answer YES to all of these
+> **You should be able to answer YES to all of these:**
 
 - Is the root filesystem mounted correctly?
 - Is the ESP mounted at `/boot`?
@@ -1712,7 +1706,7 @@ If one answer is **NO**, stop and repair it before rebooting.
 
 ---
 
-# PART 28 — Exit safely
+## PART 28 — Exit safely
 
 ## STEP 53 — Leave the installed system
 
@@ -1720,67 +1714,67 @@ If you are inside the systemd-mode chroot:
 
 ```bash
 exit
-```
+```text
 
 You should return to the live installer shell.
 
-### Verify
+> **Verify:**
 
 ```findmnt -R /mnt
-```
+```text
 
 ---
 
 ## STEP 54 — Unmount the installation
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```umount -R /mnt
-```
+```text
 
-### Verify
+> **Verify:**
 
 ```findmnt -R /mnt
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 There should be no remaining mounted filesystem under `/mnt`.
 
-### ❌ If unmount reports "target is busy"
+> **❌ If unmount reports "target is busy":**
 
 Do not use `umount -l` blindly.
 
 Check what is using the mount:
 
 ```fuser -vm /mnt
-```
+```text
 
 Leave any shell currently inside `/mnt`, then retry.
 
 ---
 
-# PART 29 — Reboot
+## PART 29 — Reboot
 
 ## STEP 55 — Final disk check before reboot
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINTS,MODEL
-```
+```text
 
 The target filesystems should no longer be mounted under `/mnt`.
 
-### STEP 56 — Reboot
+> **STEP 56 — Reboot:**
 
 ```reboot
-```
+```text
 
 When the firmware begins the next boot, remove the USB installer if necessary so the computer boots from the internal disk.
 
 ---
 
-# PART 30 — First boot
+## PART 30 — First boot
 
 ## STEP 57 — Choose Arch Linux
 
@@ -1790,9 +1784,9 @@ Choose:
 
 ```text
 Arch Linux
-```
+```text
 
-### Correct boot chain
+> **Correct boot chain:**
 
 You should see the machine proceed through:
 
@@ -1802,9 +1796,9 @@ You should see the machine proceed through:
 → initramfs
 → systemd
 → login
-```
+```text
 
-### ❌ If you return to firmware
+> **❌ If you return to firmware:**
 
 Use the [boot recovery guide](../08-bootloader/03-boot-recovery.md).
 
@@ -1820,7 +1814,7 @@ Enter the username created earlier.
 
 Then enter its password.
 
-### Correct result
+> **Correct result:**
 
 You reach a shell as your normal user.
 
@@ -1828,18 +1822,18 @@ Verify:
 
 ```whoami
 id
-```
+```text
 
 ---
 
-# PART 31 — First live-system verification
+## PART 31 — First live-system verification
 
 ## STEP 59 — Verify the running kernel
 
 ```uname -r
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 You see an Arch Linux kernel version.
 
@@ -1848,9 +1842,9 @@ You see an Arch Linux kernel version.
 ## STEP 60 — Verify the root filesystem
 
 ```findmnt /
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 The root filesystem is mounted at `/`.
 
@@ -1859,9 +1853,9 @@ The root filesystem is mounted at `/`.
 ## STEP 61 — Verify the boot filesystem
 
 ```findmnt /boot
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 The EFI System Partition is mounted at `/boot`.
 
@@ -1872,15 +1866,15 @@ The EFI System Partition is mounted at `/boot`.
 ```systemctl is-active NetworkManager.service
 ip -br address
 ping -c 3 ping.archlinux.org
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 - NetworkManager is active.
 - The network interface has an address.
 - Ping receives replies.
 
-### ❌ If network fails
+> **❌ If network fails:**
 
 Read:
 
@@ -1897,9 +1891,9 @@ Now that you are on the real running system, systemd status tools are appropriat
 Run:
 
 ```timedatectl status
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 The timezone and clock state are correct.
 
@@ -1908,9 +1902,9 @@ The timezone and clock state are correct.
 ## STEP 64 — Verify microcode
 
 ```journalctl -k --grep='microcode:'
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 You may see a microcode update message.
 
@@ -1920,30 +1914,30 @@ The important point is that the correct microcode package was installed for the 
 
 ---
 
-# PART 32 — Update the new system
+## PART 32 — Update the new system
 
 ## STEP 65 — Perform the first full update
 
-### 🎯 Goal
+> **🎯 Goal:**
 
 Bring the newly installed system to the current repository state.
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```sudo pacman -Syu
-```
+```text
 
 Confirm the package transaction when prompted.
 
-### Correct result
+> **Correct result:**
 
 The system updates without a fatal error.
 
-### ⚠️ Important
+> **⚠️ Important:**
 
 Arch Linux is a rolling-release distribution. Use complete system upgrades rather than selectively upgrading random packages.
 
-### ❌ If pacman fails
+> **❌ If pacman fails:**
 
 Read the error.
 
@@ -1953,20 +1947,20 @@ Start with:
 
 ---
 
-# PART 33 — Install the desktop
+## PART 33 — Install the desktop
 
 ## STEP 66 — Install GNOME
 
 This guide uses GNOME as its beginner desktop baseline.
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```sudo pacman -S gnome
-```
+```text
 
 When pacman asks you to choose packages from the group, the default selection is normally the complete group. Review the list and accept the default unless you intentionally know which components you are excluding.
 
-### Why GNOME?
+> **Why GNOME?:**
 
 This is not a claim that GNOME is the only or universally best desktop. It is simply the baseline used by this linear beginner path.
 
@@ -1976,36 +1970,36 @@ GNOME provides an integrated graphical desktop and uses GDM as its graphical log
 
 ## STEP 67 — Enable GDM
 
-### ⌨️ Run
+> **⌨️ Run:**
 
 ```sudo systemctl enable gdm.service
-```
+```text
 
-### Verify
+> **Verify:**
 
 ```systemctl is-enabled gdm.service
-```
+```text
 
 Expected:
 
 ```text
 enabled
-```
+```text
 
-### Important
+> **Important:**
 
 Do not enable several display managers at the same time.
 
 ---
 
-# PART 34 — Reboot into the desktop
+## PART 34 — Reboot into the desktop
 
 ## STEP 68 — Reboot
 
 ```sudo reboot
-```
+```text
 
-### Expected sequence
+> **Expected sequence:**
 
 ```systemd-boot
     ↓
@@ -2016,7 +2010,7 @@ systemd
 GDM
     ↓
 GNOME login screen
-```
+```text
 
 ---
 
@@ -2026,13 +2020,13 @@ Select the user created earlier.
 
 Enter the password.
 
-### Correct result
+> **Correct result:**
 
 The GNOME desktop appears.
 
 ---
 
-# PART 35 — Final health check
+## PART 35 — Final health check
 
 ## STEP 70 — Check the desktop session
 
@@ -2040,9 +2034,9 @@ Open Terminal and run:
 
 ```echo "$XDG_CURRENT_DESKTOP"
 echo "$XDG_SESSION_TYPE"
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 You should see a GNOME-related desktop value and normally a Wayland session type on a supported modern setup.
 
@@ -2053,14 +2047,14 @@ The exact environment can differ with hardware and configuration.
 ## STEP 71 — Check failed services
 
 ```systemctl --failed
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 Ideally:
 
 ```0 loaded units listed
-```
+```text
 
 If a failed service appears, do not immediately reinstall the whole system.
 
@@ -2068,7 +2062,7 @@ Inspect:
 
 ```systemctl status <service>
 journalctl -u <service> -b --no-pager
-```
+```text
 
 ---
 
@@ -2077,9 +2071,9 @@ journalctl -u <service> -b --no-pager
 ```lsblk -f
 df -h
 findmnt
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 - root filesystem exists and is mounted;
 - ESP exists and is mounted;
@@ -2090,7 +2084,7 @@ findmnt
 ## STEP 73 — Check memory
 
 ```free -h
-```
+```text
 
 This gives a baseline for installed RAM and current memory use.
 
@@ -2103,7 +2097,7 @@ Do not treat "used memory" alone as a failure. Linux uses available RAM for usef
 ```lspci -k
 lsusb
 lscpu
-```
+```text
 
 If a device is not working, use the hardware troubleshooting path instead of installing random drivers.
 
@@ -2112,26 +2106,26 @@ If a device is not working, use the hardware troubleshooting path instead of ins
 ## STEP 75 — Check the boot path one last time
 
 ```bootctl status
-```
+```text
 
-### Correct result
+> **Correct result:**
 
 systemd-boot should report the installed boot manager and current boot information.
 
 ---
 
-# PART 36 — Installation is complete
+## PART 36 — Installation is complete
 
 ## You are done when all of these are true
 
-### Storage
+> **Storage:**
 
 - [ ] Correct target disk was used.
 - [ ] Root filesystem mounts at `/`.
 - [ ] ESP mounts at `/boot`.
 - [ ] fstab is valid.
 
-### Boot
+> **Boot:**
 
 - [ ] UEFI mode was used.
 - [ ] systemd-boot is installed.
@@ -2139,20 +2133,20 @@ systemd-boot should report the installed boot manager and current boot informati
 - [ ] Kernel and initramfs exist.
 - [ ] The computer can reboot without the USB installer.
 
-### User
+> **User:**
 
 - [ ] Normal user exists.
 - [ ] Normal user can log in.
 - [ ] User belongs to `wheel`.
 - [ ] sudo works.
 
-### Network
+> **Network:**
 
 - [ ] NetworkManager is enabled.
 - [ ] NetworkManager is active.
 - [ ] Internet works.
 
-### System
+> **System:**
 
 - [ ] Timezone is correct.
 - [ ] Locale is generated.
@@ -2160,13 +2154,13 @@ systemd-boot should report the installed boot manager and current boot informati
 - [ ] CPU microcode package matches the CPU vendor.
 - [ ] System is updated.
 
-### Desktop
+> **Desktop:**
 
 - [ ] GNOME starts.
 - [ ] GDM starts.
 - [ ] User can log in graphically.
 
-### Recovery
+> **Recovery:**
 
 - [ ] You know where the boot recovery guide is.
 - [ ] You know where the general recovery guide is.
@@ -2174,13 +2168,13 @@ systemd-boot should report the installed boot manager and current boot informati
 
 ---
 
-# PART 37 — What to do when something goes wrong
+## PART 37 — What to do when something goes wrong
 
 Do not use "try random commands" as a troubleshooting strategy.
 
 Use this order:
 
-```
+```text
 1. STOP
 2. Do not erase anything
 3. Record the exact error
@@ -2189,7 +2183,7 @@ Use this order:
 6. Make the smallest repair
 7. Verify
 8. Reboot only when the layer is healthy
-```
+```text
 
 ## If the computer will not boot
 
@@ -2205,7 +2199,7 @@ Useful evidence:
 lsblk -f
 efibootmgr -v
 bootctl status
-```
+```text
 
 ## If the internet does not work
 
@@ -2220,7 +2214,7 @@ Evidence:
 ip -br link
 ip -br address
 systemctl status NetworkManager
-```
+```text
 
 ## If pacman fails
 
@@ -2238,7 +2232,7 @@ Switch to a TTY if possible and inspect:
 ```systemctl --failed
 systemctl status gdm
 journalctl -b -p err..alert --no-pager
-```
+```text
 
 Then use:
 
@@ -2247,7 +2241,7 @@ Then use:
 
 ---
 
-# PART 38 — The five rules that prevent most beginner mistakes
+## PART 38 — The five rules that prevent most beginner mistakes
 
 ## Rule 1 — Never guess a disk
 
@@ -2255,7 +2249,7 @@ Always run:
 
 ```bash
 lsblk -o NAME,SIZE,MODEL,FSTYPE,MOUNTPOINTS
-```
+```text
 
 Then identify the target by evidence.
 
@@ -2276,7 +2270,7 @@ ls -lh /boot
 bootctl status
 bootctl list
 efibootmgr -v
-```
+```text
 
 ## Rule 4 — Never repair by destroying evidence
 
@@ -2289,7 +2283,7 @@ lsblk -f
 findmnt
 systemctl --failed
 journalctl -b -p err..alert --no-pager
-```
+```text
 
 ## Rule 5 — One change at a time
 
@@ -2299,7 +2293,7 @@ Make the smallest change that can test your hypothesis.
 
 ---
 
-# PART 39 — What this guide deliberately does not hide
+## PART 39 — What this guide deliberately does not hide
 
 This is a beginner guide, but Arch Linux is still a manual distribution.
 
