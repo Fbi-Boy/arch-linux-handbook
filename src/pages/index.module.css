@@ -1,21 +1,22 @@
-.hero {
-  padding: 7rem 1.5rem 6rem;
+ .hero {
+  padding: 6.5rem 1.5rem 5rem;
   background:
-    radial-gradient(circle at 85% 20%, rgba(23, 147, 209, 0.16), transparent 32%),
-    radial-gradient(circle at 10% 70%, rgba(23, 147, 209, 0.08), transparent 28%);
+    radial-gradient(circle at 82% 18%, rgba(23, 147, 209, 0.18), transparent 30%),
+    radial-gradient(circle at 8% 75%, rgba(23, 147, 209, 0.08), transparent 26%);
   border-bottom: 1px solid var(--handbook-border);
 }
 
 .heroGrid,
-.section {
+.section,
+.quickSection {
   width: min(1160px, 100%);
   margin: 0 auto;
 }
 
 .heroGrid {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-  gap: 5rem;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  gap: 4rem;
   align-items: center;
 }
 
@@ -48,50 +49,55 @@
   margin-top: 2rem;
 }
 
-.signal {
-  padding: 1.25rem;
-  border: 1px solid var(--handbook-border);
-  border-radius: 22px;
-  background: color-mix(in srgb, var(--handbook-surface) 88%, transparent);
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.10);
+.signalLine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+  margin-top: 2rem;
+  color: var(--handbook-text-muted);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
 }
 
-.signalTop,
-.signalBottom {
+.signalLine i {
+  color: var(--ifm-color-primary);
+  font-style: normal;
+}
+
+.architectureCard {
+  padding: 1rem;
+  border: 1px solid var(--handbook-border);
+  border-radius: 24px;
+  background: var(--handbook-surface);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.12);
+}
+
+.architectureCard img {
+  display: block;
+  width: 100%;
+  margin: 1rem 0;
+  border-radius: 16px;
+}
+
+.architectureCard a {
+  display: inline-block;
+  padding: 0.35rem 0.5rem;
+  color: var(--ifm-color-primary);
+  font-size: 0.86rem;
+  font-weight: 750;
+}
+
+.signalTop {
   color: var(--handbook-text-muted);
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.14em;
 }
 
-.signalBottom {
-  margin-top: 1.5rem;
-}
-
-.flow {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  margin-top: 1.5rem;
-}
-
-.flow span {
-  padding: 0.9rem 1rem;
-  border: 1px solid var(--handbook-border);
-  border-radius: 12px;
-  font-weight: 700;
-  background: var(--handbook-surface-soft);
-}
-
-.flow i {
-  color: var(--ifm-color-primary);
-  font-style: normal;
-  font-weight: 800;
-  text-align: center;
-}
-
 .section {
-  padding: 5rem 1.5rem 7rem;
+  padding: 5rem 1.5rem 4rem;
 }
 
 .sectionHeading {
@@ -102,7 +108,8 @@
   margin-bottom: 2rem;
 }
 
-.sectionHeading h2 {
+.sectionHeading h2,
+.quickHeader h2 {
   margin: 0.5rem 0 0;
   letter-spacing: -0.035em;
 }
@@ -165,35 +172,49 @@
   font-weight: 750;
 }
 
+.quickSection {
+  padding: 2rem 1.5rem 7rem;
+}
+
+.quickGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.quickGrid a {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--handbook-border);
+  border-radius: 12px;
+  color: inherit;
+  background: var(--handbook-surface-soft);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.quickGrid a:hover {
+  color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+.quickGrid span {
+  color: var(--ifm-color-primary);
+}
+
 @media screen and (max-width: 996px) {
-  .hero {
-    padding-top: 4.5rem;
-  }
-
-  .heroGrid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .sectionHeading {
-    display: block;
-  }
-
-  .sectionHeading p {
-    margin-top: 1rem;
-  }
+  .hero { padding-top: 4.5rem; }
+  .heroGrid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .grid, .quickGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sectionHeading { display: block; }
+  .sectionHeading p { margin-top: 1rem; }
 }
 
 @media screen and (max-width: 640px) {
-  .hero h1 {
-    font-size: clamp(2.8rem, 15vw, 4.2rem);
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
+  .hero h1 { font-size: clamp(2.8rem, 15vw, 4.2rem); }
+  .grid, .quickGrid { grid-template-columns: 1fr; }
+  .heroGrid { gap: 2rem; }
 }
