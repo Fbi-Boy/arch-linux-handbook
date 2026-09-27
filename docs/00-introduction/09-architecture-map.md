@@ -35,7 +35,9 @@ A failure should be investigated at the lowest layer that can explain the observ
 
 ### Recovery rule
 
-**STOP → CHECK → VERIFY → CONTINUE**
+### Operational sequence
+
+STOP → CHECK → VERIFY → CONTINUE
 
 Do not jump from a high-level symptom directly to a destructive repair. Inspect the state first, isolate one layer, make one controlled change, then verify.
 
