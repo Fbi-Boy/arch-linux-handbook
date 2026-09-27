@@ -49,6 +49,6 @@ journalctl -b -k -p warning
 
 ## References
 
-- [ArchWiki: Memory management](https://wiki.archlinux.org/title/Memory_management)
+- [ArchWiki: Memory management](https://wiki.archlinux.org/title/Frequently_asked_questions)
 - [ArchWiki: Swap](https://wiki.archlinux.org/title/Swap)
 - [ArchWiki: Zram](https://wiki.archlinux.org/title/Zram)
