@@ -25,7 +25,9 @@ Never store recovery keys in the same location as the device they unlock.
 
 Use the smallest recovery environment that provides the required tools:
 
-**Preserve → Identify → Mount → Chroot → Repair → Verify**
+### Recovery sequence
+
+Preserve → Identify → Mount → Chroot → Repair → Verify
 
 Before changing storage, capture:
 
