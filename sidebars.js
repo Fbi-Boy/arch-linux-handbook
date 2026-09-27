@@ -102,6 +102,7 @@ const sidebar = [
       'maintenance/release-and-readiness',
       'maintenance/dependency-maintenance',
       'maintenance/offline-recovery-kit',
+      'maintenance/final-readiness-gate',
     ],
   },
   {
