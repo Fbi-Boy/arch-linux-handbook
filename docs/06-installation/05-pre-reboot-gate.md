@@ -20,7 +20,7 @@ Confirm root and ESP are mounted as designed.
 
 ~~~bash
 systemctl is-enabled NetworkManager.service
-hostnamectl
+cat /etc/hostname
 id <username>
 ~~~
 
@@ -37,6 +37,8 @@ efibootmgr -v
 pacman -Q linux linux-firmware
 ls -lh /boot
 ~~~
+
+Use `hostnamectl` and other live-system status queries after the first real boot rather than as the primary verification inside `arch-chroot`.
 
 Inspect the ESP separately when it is mounted elsewhere.
 
