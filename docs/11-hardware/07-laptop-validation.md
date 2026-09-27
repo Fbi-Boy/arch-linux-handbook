@@ -43,6 +43,6 @@ A laptop validation pass should document detected hardware, active kernel driver
 
 ## References
 
-- [ArchWiki Hardware detection](https://wiki.archlinux.org/title/Hardware_detection_and_troubleshooting)
+- [ArchWiki Hardware detection](https://wiki.archlinux.org/title/Category:Hardware_detection_and_troubleshooting)
 - [ArchWiki Power management](https://wiki.archlinux.org/title/Power_management)
 - [ArchWiki Laptop](https://wiki.archlinux.org/title/Laptop)
