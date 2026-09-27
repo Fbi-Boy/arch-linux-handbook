@@ -1,5 +1,9 @@
 name: Link Check
 
+
+permissions:
+  contents: read
+
 on:
   push:
     branches: ["main"]
