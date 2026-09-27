@@ -13,9 +13,9 @@ const pathways = [
 ];
 
 const quickLinks = [
-  ['Command reference', '/docs/00-introduction/command-reference'],
+  ['Command reference', '/docs/introduction/command-reference'],
   ['Recovery matrix', '/docs/99-troubleshooting/recovery-matrix'],
-  ['Architecture map', '/docs/00-introduction/architecture-map'],
+  ['Architecture map', '/docs/introduction/architecture-map'],
   ['Release readiness', '/docs/15-maintenance/release-and-readiness'],
 ];
 
@@ -48,7 +48,7 @@ export default function Home() {
             <div className={styles.architectureCard}>
               <div className={styles.signalTop}>SYSTEM LAYERS</div>
               <img src="/arch-linux-handbook/img/architecture-map.svg" alt="Layered Arch Linux system architecture map" />
-              <Link to="/docs/00-introduction/architecture-map">Open architecture map →</Link>
+              <Link to="/docs/introduction/architecture-map">Open architecture map →</Link>
             </div>
           </div>
         </section>
