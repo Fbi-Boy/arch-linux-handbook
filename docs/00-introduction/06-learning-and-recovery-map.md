@@ -18,17 +18,19 @@ Use the handbook as a map rather than reading every page linearly.
 
 ## Failure-first navigation
 
-When something breaks, identify the smallest failing layer:
+When something breaks, identify the smallest failing layer.
 
-**Firmware → Bootloader → Kernel → Initramfs → Root filesystem → Userspace → Service → Application**
+### Boot failure layers
 
-For network failures:
+Firmware → Bootloader → Kernel → Initramfs → Root filesystem → Userspace → Service → Application
 
-**Device → Link → Address → Route → DNS → Application**
+### Network failure layers
 
-For hardware:
+Device → Link → Address → Route → DNS → Application
 
-**Detect → Identify → Driver → Firmware → Service → Userspace → Verify**
+### Hardware failure layers
+
+Detect → Identify → Driver → Firmware → Service → Userspace → Verify
 
 ## Verification gates
 
