@@ -14,9 +14,9 @@ const pathways = [
 
 const quickLinks = [
   ['Command reference', '/docs/introduction/command-reference'],
-  ['Recovery matrix', '/docs/99-troubleshooting/recovery-matrix'],
+  ['Recovery matrix', '/docs/troubleshooting/recovery-matrix'],
   ['Architecture map', '/docs/introduction/architecture-map'],
-  ['Release readiness', '/docs/15-maintenance/release-and-readiness'],
+  ['Release readiness', '/docs/maintenance/release-and-readiness'],
 ];
 
 export default function Home() {
